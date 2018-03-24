@@ -19,9 +19,11 @@ pipeline {
             }
         }
         stage('Build') {
-		       // Run the maven build
-		        sh 'npm install'
-		        sh 'npm run build'
+           steps {
+                // can override tool here
+                sh 'npm install'
+		            sh 'npm run build'
+            }
         }
     }
 }

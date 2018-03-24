@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Deploy'){
           when {
-                branch 'production'
+                branch 'master'
             }
           steps {
             withAWS(credentials: 's3ApiPass', region: 'eu-west-2') {

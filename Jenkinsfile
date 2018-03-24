@@ -13,8 +13,8 @@ pipeline {
                 git 'https://github.com/guillaume-pansier/profile.git'
             }
         }
-        nodejs('npm 6.13.0') {
-          stage('Build') {
+        stage('Build') {
+          nodejs('npm 6.13.0') {
 		       // Run the maven build
 		        sh 'npm install'
 		        sh 'npm run build'

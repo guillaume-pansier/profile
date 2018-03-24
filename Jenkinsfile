@@ -29,5 +29,15 @@ pipeline {
 		            sh 'npm run build'
             }
         }
+        stage('Deploy'){
+          when {
+                branch 'production'
+            }
+          steps {
+            withAWS(credentials: 's3ApiPass', region: 'eu-west-2') {
+              s3Upload bucket: 'gpansier.com', file: 'dist'
+            }
+          }
+        }
     }
 }

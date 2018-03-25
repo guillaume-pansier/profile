@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuComponent } from './menu.component';
 
@@ -8,7 +11,12 @@ describe('MenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuComponent ]
+      declarations: [ MenuComponent ],
+      imports: [
+        MatToolbarModule,
+        MatTabsModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
@@ -21,5 +29,21 @@ describe('MenuComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain link to welcome', () => {
+    expect(component.navLinks.find(value => value.path === 'welcome')).toBeTruthy();
+  });
+
+  it('should contain link to interests', () => {
+    expect(component.navLinks.find(value => value.path === 'interests')).toBeTruthy();
+  });
+
+  it('should contain link to playground', () => {
+    expect(component.navLinks.find(value => value.path === 'playground')).toBeTruthy();
+  });
+
+  it('should contain link to aboutme', () => {
+    expect(component.navLinks.find(value => value.path === 'aboutme')).toBeTruthy();
   });
 });

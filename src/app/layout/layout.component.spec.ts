@@ -5,6 +5,8 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { LayoutComponent } from './layout.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -13,8 +15,10 @@ describe('LayoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ LayoutComponent ]
+      declarations: [ LayoutComponent, MenuComponent, FooterComponent ]
     })
+    .overrideComponent(MenuComponent, {set: { template: '<div></div>' } })
+    .overrideComponent(FooterComponent, {set: { template: '<div></div>' } })
     .compileComponents();
   }));
 

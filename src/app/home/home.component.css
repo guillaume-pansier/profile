@@ -1,0 +1,17 @@
+.mat-card {
+  flex-shrink:2;
+  max-width: 100%;
+}
+
+.container {
+  display: flex; /* or inline-flex */
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  img {
+    width: 350px;
+  }
+}

@@ -3,15 +3,16 @@ import { RouterModule, Route } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 const routes: Route[] = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-  { path: '', component: AppComponent, children: [
-    { path: 'welcome', component: AppComponent},
-    { path: 'aboutme', component: AppComponent},
-    { path: 'interests', component: AppComponent},
-    { path: 'playground', component: AppComponent}
+  { path: '', component: LayoutComponent, children: [
+    { path: 'welcome', component: HomeComponent},
+    { path: 'aboutme', component: LayoutComponent},
+    { path: 'interests', component: LayoutComponent},
+    { path: 'playground', component: LayoutComponent}
   ]},
   { path: '**', redirectTo: 'welcome'},
 ];

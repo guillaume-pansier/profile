@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 
 
 const routes: Route[] = [
+  { path: '', redirectTo: 'welcome', pathMatch: 'full'},
   { path: '', component: LayoutComponent, children: [
     { path: 'welcome', component: HomeComponent},
     { path: 'aboutme', component: LayoutComponent},

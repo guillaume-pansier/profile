@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
+  title = 'my technological playground';
   images: Array<string>;
 
   constructor(private _http: HttpClient) {}

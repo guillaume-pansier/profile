@@ -11,7 +11,44 @@
 
 /* Small screens */
 @media all and (max-width: 500px) {
-  img {
+  .carouseel-img {
     width: 350px;
+  }
+}
+
+.logo {
+  max-width: 300px;
+  height: 200px;
+  margin: auto;
+  flex-shrink: 2;
+}
+
+h1 {
+  margin:30px auto;
+}
+
+.logo-container {
+  display: flex; /* or inline-flex */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .logo-container {
+    display: flex; /* or inline-flex */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+  }
+
+  .logo {
+    max-width: 300px;
+    height: 100px;
+    margin: auto;
+    flex-shrink: 2;
   }
 }

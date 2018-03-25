@@ -9,12 +9,18 @@ import { LayoutModule } from './layout/layout-module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
+import { InterestsComponent } from './interests/interests.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutmeComponent,
+    InterestsComponent,
+    PlaygroundComponent
 ],
   imports: [
     LayoutModule,

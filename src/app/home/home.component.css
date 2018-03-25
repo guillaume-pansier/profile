@@ -3,7 +3,7 @@
   max-width: 100%;
 }
 
-.container {
+.container-flex {
   display: flex; /* or inline-flex */
   justify-content: space-around;
   margin: 20px auto;
@@ -33,6 +33,7 @@ h1 {
   justify-content: center;
   align-items: center;
   align-content: space-between;
+  margin: 20px auto;
 }
 
 /* Small screens */
@@ -43,6 +44,7 @@ h1 {
     justify-content: center;
     align-items: center;
     align-content: space-between;
+    margin: 10px auto;
   }
 
   .logo {

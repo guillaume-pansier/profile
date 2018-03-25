@@ -1,0 +1,15 @@
+.container-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+img {
+  height: 56x;
+  width: 56px;
+  margin: auto;
+}
+
+a, span {
+  padding: 5px 5px;
+}

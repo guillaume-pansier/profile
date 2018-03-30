@@ -8,4 +8,8 @@ export class AppPage {
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
+
+  getDockerLogo() {
+    return element(by.css('app-root .logo-container a')).getTagName();
+  }
 }

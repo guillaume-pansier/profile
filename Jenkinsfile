@@ -10,12 +10,6 @@ pipeline {
     options {
       buildDiscarder(logRotator(numToKeepStr: '5'))
     }
-
-    // this tool will be used for all stages/steps except over-written
-    tools {
-      nodejs 'npm 6.13.0'
-    }
-
     stages {
         stage('SCM') {
             steps {
@@ -24,14 +18,17 @@ pipeline {
         }
     stage('Build') {
       steps {
-        // can override tool here
+        docker.image('node:9').inside {
           sh 'npm install'
 		      sh 'npm run build'
+        }
       }
     }
     stage('Test') {
       steps {
-        def image = docker.build "profile:${env.BUILD_ID}"
+        script {
+          def image = docker.build "profile:${env.BUILD_ID}"
+        }
       }
     }
     stage('Deploy'){

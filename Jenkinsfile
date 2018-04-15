@@ -17,11 +17,12 @@ pipeline {
             }
         }
     stage('Build') {
+      agent {
+          docker { image 'node:9' }
+      }
       steps {
-        docker.image('node:9').inside {
           sh 'npm install'
 		      sh 'npm run build'
-        }
       }
     }
     stage('Test') {

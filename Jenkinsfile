@@ -22,22 +22,28 @@ pipeline {
                 git 'https://github.com/guillaume-pansier/profile.git'
             }
         }
-        stage('Build') {
-           steps {
-                // can override tool here
-                sh 'npm install'
-		            sh 'npm run build'
-            }
-        }
-        stage('Deploy'){
-          when {
-                branch 'master'
-            }
-          steps {
-            withAWS(credentials: 's3ApiPass', region: 'eu-west-2') {
-              s3Upload bucket: 'gpansier.com', file: 'dist'
-            }
-          }
-        }
+    stage('Build') {
+      steps {
+        // can override tool here
+          sh 'npm install'
+		      sh 'npm run build'
+      }
     }
+    stage('Test') {
+      steps {
+        def image = docker.build "profile:${env.BUILD_ID}"
+      }
+    }
+    stage('Deploy'){
+      when {
+            branch 'master'
+        }
+      steps {
+        withAWS(credentials: 's3 amazon', region: 'eu-west-2') {
+          s3Upload bucket: 'gpansier.com', file: 'dist'
+          cfInvalidate(distribution:'E2NRH8JTSJDT9U', paths:['/*'])
+        }
+      }
+    }
+  }
 }

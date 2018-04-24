@@ -36,11 +36,16 @@ pipeline {
       when {
             branch 'master'
         }
+      agent {
+          docker { image 'node:9' }
+      }
       steps {
-        withAWS(credentials: 's3Pass', region: 'eu-west-2') {
-          s3Upload bucket: 'gpansier.com', file: 'dist'
-          cfInvalidate(distribution:'E2NRH8JTSJDT9U', paths:['/*'])
-        }
+          sh 'npm install'
+		      sh 'npm run build'
+          withAWS(credentials: 's3Pass', region: 'eu-west-2') {
+            s3Upload bucket: 'gpansier.com', file: 'dist'
+            cfInvalidate(distribution:'E2NRH8JTSJDT9U', paths:['/*'])
+          }
       }
     }
   }

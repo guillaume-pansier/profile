@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod --aot -H 0.0.0.0 --public-host web",
+    "start": "ng serve --prod --aot",
     "build": "ng build --prod --aot",
     "test": "ng test",
+    "protractor": "node node_modules/protractor/bin/protractor protractor.conf.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

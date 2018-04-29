@@ -2,6 +2,9 @@ FROM node:9
 
 WORKDIR /home/node/app
 
+# install curl for healthcheck
+RUN apt-get update && apt-get --assume-yes install curl
+
 ## Create directories for future use and set right, otherwise the build fails
 RUN mkdir /home/node/.npm-global ; \
    chown -R node:node /home/node/app ; \
@@ -28,4 +31,7 @@ RUN npm i -g @angular/cli@1.7.3
 
 EXPOSE 4200
 
-CMD [ "npm", "start" ]
+HEALTHCHECK --interval=5s --timeout=3s \
+  CMD curl -f http://localhost:4200/ || exit 1
+
+CMD [ "sh", "-c", "npm start -- -H 0.0.0.0 --public-host=${public_host}" ]

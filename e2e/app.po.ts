@@ -10,6 +10,6 @@ export class AppPage {
   }
 
   getDockerLogo() {
-    return element(by.css('app-root .logo-container a')).getTagName();
+    return element(by.css('.logo-container a')).getTagName();
   }
 }

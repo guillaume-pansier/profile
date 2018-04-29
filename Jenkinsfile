@@ -28,10 +28,19 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          def image = docker.build "profile:${env.BUILD_ID}"
+          def web = docker.build "profile:${env.BUILD_ID}"
+          web.withRun { web ->
+            docker.image('selenium/standalone-chrome').withRun('--link ${web.id}:web') { selenium ->
+              docker.image('node:9').inside('--link ${web.id}:web --link ${selenium.id}:selenium') {
+                sh 'npm install -g @angular/cli';
+                ng e2e --serve false --base-href=http://web:4200
+              }
+            }
+          }
         }
       }
     }
+
     stage('Deploy'){
       when {
             branch 'master'

@@ -32,8 +32,8 @@ pipeline {
           web.withRun { web ->
             docker.image('selenium/standalone-chrome').withRun('--link ${web.id}:web') { selenium ->
               docker.image('node:9').inside('--link ${web.id}:web --link ${selenium.id}:selenium') {
-                sh 'npm install -g @angular/cli';
-                ng e2e --serve false --base-href=http://web:4200
+                sh 'npm install -g @angular/cli'
+                sh 'ng e2e --serve false --base-href=http://web:4200'
               }
             }
           }

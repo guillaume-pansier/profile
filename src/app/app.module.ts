@@ -5,20 +5,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 import { LayoutModule } from './layout/layout-module';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AboutmeComponent } from './aboutme/aboutme.component';
 import { InterestsComponent } from './interests/interests.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { AboutmeModule } from './aboutme/aboutme.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutmeComponent,
     InterestsComponent,
     PlaygroundComponent
 ],
@@ -28,7 +29,10 @@ import { PlaygroundComponent } from './playground/playground.component';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule,
+    MatIconModule,
+    AboutmeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

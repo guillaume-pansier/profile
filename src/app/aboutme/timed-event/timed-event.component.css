@@ -1,0 +1,22 @@
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.date {
+  color: gray;
+  margin: 0 20px;
+}
+
+.event-title {
+  margin-bottom: 0;
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .date {
+    color: gray;
+    margin: 0 10px;
+  }
+}

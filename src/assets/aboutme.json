@@ -1,0 +1,51 @@
+{
+  "eventsGroups": [
+    {
+      "category": "Work Experience",
+      "events": [
+        {
+          "date": "2015 - 2018",
+          "title": "AXA BE",
+          "subtitle": "Java Team Lead / Software Engineer & Analyst",
+          "descriptionLines": [
+            "Java Rest API / Backend Developper (Spring 4, Spring Boot, CXF JAX-WS)",
+            "batch processing (Spring Batch)",
+            "Angular Front-end Developper (Angular 4, ngrx)",
+            "transversal projects: transition to GIT , CI/CD Jenkins pipeline, Java community animation, IT recruitment"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Education",
+      "events": [
+        {
+          "date": "2013 - 2015",
+          "title": "Double Degree - Master's degree in Information Technology",
+          "subtitle": "Technische Universität Berlin",
+          "descriptionLines": [
+            "specialization in communication-based system",
+            "option in statistics"
+          ]
+        },
+        {
+          "date": "2011 - 2015",
+          "title": "Double Degree - Master's degree in Engineering",
+          "subtitle": "Ecole Centrale de Nantes",
+          "descriptionLines": [
+            "specialization in Computer Science"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Certifications",
+      "events": [
+        {
+          "date": "2015",
+          "title": "ITIL Foundation Certification"
+        }
+      ]
+    }
+  ]
+}

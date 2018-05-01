@@ -1,3 +1,17 @@
-<p>
-  aboutme works!
-</p>
+<div class="mat-typography">
+  <mat-card>
+    <mat-drawer-container>
+      <mat-drawer mode="side" opened="true" class="drawer-side">
+        <app-drawer-side></app-drawer-side>
+      </mat-drawer>
+      <mat-drawer-content class="main-content">
+        <ng-container *ngFor="let eventGroup of timedEventGroups">
+          <h2>{{ eventGroup.category }}</h2>
+          <app-timed-event *ngFor="let event of eventGroup.events" [date]="event.date" [title]="event.title" [subtitle]="event.subtitle">
+            <app-timed-event-description [descriptionLines]="event.descriptionLines"></app-timed-event-description>
+          </app-timed-event>
+        </ng-container>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-card>
+</div>

@@ -72,61 +72,6 @@ pipeline {
       }
     }
 
-    // stage('Test declarative') {
-
-      // parallel {
-
-      //   def image = docker.build("profile:${env.BUILD_ID}", "-f e2e/docker/Dockerfile .")
-
-      //   stage('test on firefox') {
-      //     steps {
-      //       script {
-      //         image.withRun('-e public_host=web') { web ->
-
-      //           sh """
-      //             counter=0
-      //             until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "12" ]; do
-      //               echo "Sleeping for next 5 seconds"
-      //               sleep 5
-      //               counter=\$((counter+1));
-      //             done;
-      //           """
-
-      //           docker.image('selenium/standalone-firefox').withRun("--link ${web.id}:web") { selenium ->
-      //             docker.image('node:9').inside("--link ${selenium.id}:selenium") {
-      //               sh 'npm run protractor -- --baseUrl=http://web:4200 --seleniumAddress=http://selenium:4444/wd/hub --browser=firefox'
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      //   stage('test on chrome') {
-      //     steps {
-      //       script {
-      //         image.withRun('-e public_host=web') { web ->
-
-      //           sh """
-      //             counter=0
-      //             until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "12" ]; do
-      //               echo "Sleeping for next 5 seconds"
-      //               sleep 5
-      //               counter=\$((counter+1));
-      //             done;
-      //           """
-
-      //           docker.image('selenium/standalone-chrome').withRun("--link ${web.id}:web") { selenium ->
-      //             docker.image('node:9').inside("--link ${selenium.id}:selenium") {
-      //               sh 'npm run protractor -- --baseUrl=http://web:4200 --seleniumAddress=http://selenium:4444/wd/hub --browser=chrome'
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
-    // }
-
     stage('Deploy'){
       when {
             branch 'master'

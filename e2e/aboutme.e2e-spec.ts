@@ -11,20 +11,26 @@ describe('profile AboutMe', () => {
 
   it('should display email and linkedin contacts in side drawer', () => {
     page.navigateTo();
+    expect(page.getDrawerSideSectionsWithTitle('CONTACTS').count()).toBe(1);
+    expect(page.getDrawerSideSectionsWithTitle('CONTACTS').first().isDisplayed()).toBeTruthy();
     expect(page.getDrawerSideContacts() .map(title => title.getAttribute('href')))
-    .toEqual(['mailto:guillaume.pansier@gmail.com?Subject=Contact', 'https://be.linkedin.com/in/guillaume-pansier-8b479587']);
+    .toEqual(jasmine.arrayContaining([
+      'mailto:guillaume.pansier@gmail.com?Subject=Contact',
+      'https://www.linkedin.com/in/gpansier',
+      protractor.browser.baseUrl + '/'
+    ]));
   });
 
   it('should display skills in side drawer', () => {
     page.navigateTo();
-    expect(page.getDrawerSideSectionsWithTitle('Skills').count()).toBe(1);
-    expect(page.getDrawerSideSectionsWithTitle('Skills').first().isDisplayed()).toBeTruthy();
+    expect(page.getDrawerSideSectionsWithTitle('SKILLS').count()).toBe(1);
+    expect(page.getDrawerSideSectionsWithTitle('SKILLS').first().isDisplayed()).toBeTruthy();
   });
 
   it('should display languages in side drawer', () => {
     page.navigateTo();
-    expect(page.getDrawerSideSectionsWithTitle('Languages').count()).toBe(1);
-    expect(page.getDrawerSideSectionsWithTitle('Languages').first().isDisplayed()).toBeTruthy();
+    expect(page.getDrawerSideSectionsWithTitle('LANGUAGES').count()).toBe(1);
+    expect(page.getDrawerSideSectionsWithTitle('LANGUAGES').first().isDisplayed()).toBeTruthy();
   });
 
 

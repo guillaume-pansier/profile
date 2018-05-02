@@ -1,5 +1,5 @@
 .drawer-side {
-  background-color: #7986CB;
+  background-color: #7986cb;
   color: whitesmoke;
   padding: 20px 20px;
   height: 100%;
@@ -8,11 +8,21 @@
   flex-flow: column;
 }
 
-ul li{
-  color: #F8BBD0
+h4.lead {
+  border-bottom: 1px solid #f8bbd0;
 }
 
-ul li span{
+ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul li {
+  color: #f8bbd0;
+}
+
+ul li span {
   color: whitesmoke;
 }
 
@@ -23,16 +33,24 @@ ul li span{
   flex-wrap: nowrap;
   word-break: break-all;
   word-wrap: break-word;
+  margin: 5px 0px;
 }
 
-.contact-container i, .contact-container img {
-  margin-right: 5px;
+.contact-container i,
+.contact-container img {
   font-size: 24px;
+}
+
+a {
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 .icon {
   width: 24px;
   height: 24px;
+  font-size: 24px;
+  margin-right: 5px;
 }
 
 .side-section {
@@ -49,20 +67,21 @@ a {
 }
 
 /* Small screens */
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
   .drawer-side {
-    background-color: #7986CB;
+    background-color: #7986cb;
     color: whitesmoke;
     padding: 10px 10px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
     flex-flow: column;
-    width: 120px;
-    max-width: 120px;
+    width: 150px;
+    max-width: 150px;
   }
 
-  .contact-container i, .contact-container img {
+  .contact-container i,
+  .contact-container img {
     margin-right: 5px;
     font-size: 15px;
   }
@@ -70,6 +89,8 @@ a {
   .icon {
     width: 15px;
     height: 15px;
+    font-size: 15px;
+    margin-right: 5px;
   }
 
   .side-section {

@@ -13,16 +13,42 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
+                cleanWs()
                 git 'https://github.com/guillaume-pansier/profile.git'
             }
         }
-    stage('Build') {
+    stage('fetch dependencies') {
       agent {
-          docker { image 'node:9' }
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
       }
       steps {
+          sh 'ls -ltr'
           sh 'npm install'
-		      sh 'npm run build'
+          sh 'ls -ltr'
+          // stash includes: 'node_modules/', name: 'node_modules'
+      }
+    }
+    stage('Debug') {
+      steps {
+          sh 'ls -ltr'
+      }
+    }
+
+    stage('Unit Tests') {
+      agent {
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
+      }
+      steps {
+          sh 'ls -ltr'
+          // unstash 'node_modules'
+		      sh 'npm test'
+          junit '**/test-results.xml'
       }
     }
 
@@ -72,15 +98,26 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      agent {
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
+      }
+      steps {
+          // unstash 'node_modules'
+          sh 'npm run build'
+          // stash includes: 'dist/', name: 'dist'
+      }
+    }
+
     stage('Deploy'){
       when {
             branch 'master'
         }
-      agent {
-          docker { image 'node:9' }
-      }
       steps {
-          sh 'npm install'
+          // unstash 'dist'
 		      sh 'npm run build'
           withAWS(credentials: 's3Pass', region: 'eu-west-2') {
             s3Upload bucket: 'gpansier.com', file: 'dist'

@@ -25,15 +25,7 @@ pipeline {
           }
       }
       steps {
-          sh 'ls -ltr'
           sh 'npm install'
-          sh 'ls -ltr'
-          // stash includes: 'node_modules/', name: 'node_modules'
-      }
-    }
-    stage('Debug') {
-      steps {
-          sh 'ls -ltr'
       }
     }
 
@@ -45,9 +37,7 @@ pipeline {
           }
       }
       steps {
-          sh 'ls -ltr'
-          // unstash 'node_modules'
-		      sh 'npm test'
+		      sh 'npm run test:ci'
           junit '**/test-results.xml'
       }
     }
@@ -106,9 +96,7 @@ pipeline {
           }
       }
       steps {
-          // unstash 'node_modules'
           sh 'npm run build'
-          // stash includes: 'dist/', name: 'dist'
       }
     }
 
@@ -117,7 +105,6 @@ pipeline {
             branch 'master'
         }
       steps {
-          // unstash 'dist'
 		      sh 'npm run build'
           withAWS(credentials: 's3Pass', region: 'eu-west-2') {
             s3Upload bucket: 'gpansier.com', file: 'dist'

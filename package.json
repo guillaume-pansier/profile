@@ -7,6 +7,7 @@
     "start": "ng serve --prod --aot",
     "build": "ng build --prod --aot",
     "test": "ng test",
+    "test:ci": "ng test --code-coverage --progress=false --single-run --browsers=Chrome_Headless",
     "protractor": "node node_modules/protractor/bin/protractor protractor.conf.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -46,7 +47,9 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-junit-reporter": "^1.2.0",
     "protractor": "~5.1.2",
+    "puppeteer": "^1.3.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"

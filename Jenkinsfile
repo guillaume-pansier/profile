@@ -13,16 +13,42 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git 'https://github.com/guillaume-pansier/profile.git'
+                checkout scm
             }
         }
-    stage('Build') {
+    stage('fetch dependencies') {
       agent {
-          docker { image 'node:9' }
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
       }
       steps {
           sh 'npm install'
-		      sh 'npm run build'
+      }
+    }
+    stage('Lint') {
+      agent {
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
+      }
+      steps {
+		      sh 'npm run lint'
+      }
+    }
+
+    stage('Unit Tests') {
+      agent {
+          docker {
+            image 'circleci/node:9-stretch-browsers'
+            reuseNode true
+          }
+      }
+      steps {
+		      sh 'npm run test:ci'
+          junit '**/test-results.xml'
       }
     }
 
@@ -72,15 +98,23 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      agent {
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
+      }
+      steps {
+          sh 'npm run build'
+      }
+    }
+
     stage('Deploy'){
       when {
             branch 'master'
         }
-      agent {
-          docker { image 'node:9' }
-      }
       steps {
-          sh 'npm install'
 		      sh 'npm run build'
           withAWS(credentials: 's3Pass', region: 'eu-west-2') {
             s3Upload bucket: 'gpansier.com', file: 'dist'

@@ -1,9 +1,22 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { AboutmeComponent } from './aboutme.component';
+import { DrawerSideComponent } from './drawer-side/drawer-side.component';
+import { EventService } from './event.service';
+import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
+import { TimedEventComponent } from './timed-event/timed-event.component';
+
+
+
+class EventServiceStub {
+  getEvents() {
+    return Observable.of([]);
+  }
+}
 
 describe('AboutmeComponent', () => {
   let component: AboutmeComponent;
@@ -11,7 +24,12 @@ describe('AboutmeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AboutmeComponent ]
+      imports: [ MatCardModule ],
+      declarations: [ AboutmeComponent, DrawerSideComponent, TimedEventComponent, TimedEventDescriptionComponent ],
+      providers: [
+        { provide: EventService, useClass: EventServiceStub}
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));

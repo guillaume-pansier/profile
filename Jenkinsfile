@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git 'https://github.com/guillaume-pansier/profile.git'
+                checkout scm
             }
         }
     stage('fetch dependencies') {

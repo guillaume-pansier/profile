@@ -13,7 +13,6 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                cleanWs()
                 git 'https://github.com/guillaume-pansier/profile.git'
             }
         }

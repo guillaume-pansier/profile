@@ -27,6 +27,17 @@ pipeline {
           sh 'npm install'
       }
     }
+    stage('Lint') {
+      agent {
+          docker {
+            image 'node:9'
+            reuseNode true
+          }
+      }
+      steps {
+		      sh 'npm run lint'
+      }
+    }
 
     stage('Unit Tests') {
       agent {

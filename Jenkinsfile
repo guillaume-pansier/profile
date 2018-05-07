@@ -31,7 +31,7 @@ pipeline {
     stage('Unit Tests') {
       agent {
           docker {
-            image 'node:9'
+            image 'circleci/node:9-stretch-browsers'
             reuseNode true
           }
       }

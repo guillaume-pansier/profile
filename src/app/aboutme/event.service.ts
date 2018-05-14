@@ -12,7 +12,7 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   getEvents(): Observable<EventGroup[]> {
-    return this.http.get<EventResponse>(this.jsonUrl).pipe(map(data => data.eventsGroups))
+    return this.http.get<EventResponse>(this.jsonUrl).pipe(map(data => data.eventsGroups));
   }
 }
 

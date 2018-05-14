@@ -2,8 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable, of } from 'rxjs';
 import { AboutmeComponent } from './aboutme.component';
 import { DrawerSideComponent } from './drawer-side/drawer-side.component';
 import { EventService } from './event.service';
@@ -14,7 +13,7 @@ import { TimedEventComponent } from './timed-event/timed-event.component';
 
 class EventServiceStub {
   getEvents() {
-    return Observable.of([]);
+    return of([]);
   }
 }
 

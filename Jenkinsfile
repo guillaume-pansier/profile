@@ -116,6 +116,7 @@ pipeline {
         }
       steps {
           withAWS(credentials: 's3Pass', region: 'eu-west-2') {
+            s3Delete bucket: 'gpansier.com', path: '*'
             s3Upload bucket: 'gpansier.com', file: 'dist'
             cfInvalidate(distribution:'E2NRH8JTSJDT9U', paths:['/*'])
           }

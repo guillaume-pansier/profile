@@ -44,6 +44,8 @@ ul li span {
 a {
   display: inline-flex;
   vertical-align: middle;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon {

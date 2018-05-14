@@ -1,9 +1,9 @@
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TimedEvent } from './timed-event/timed-event';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class EventService {
@@ -12,7 +12,7 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   getEvents(): Observable<EventGroup[]> {
-    return this.http.get<EventResponse>(this.jsonUrl). map(data => data.eventsGroups);
+    return this.http.get<EventResponse>(this.jsonUrl).pipe(map(data => data.eventsGroups))
   }
 }
 

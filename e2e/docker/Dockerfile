@@ -34,4 +34,4 @@ EXPOSE 4200
 HEALTHCHECK --interval=5s --timeout=3s \
   CMD curl -f http://localhost:4200/ || exit 1
 
-CMD [ "sh", "-c", "npm start -- -H 0.0.0.0 --public-host=${public_host}" ]
+CMD [ "sh", "-c", "npm start -- --host 0.0.0.0 --public-host=${public_host}" ]

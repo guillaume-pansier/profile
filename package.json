@@ -7,7 +7,7 @@
     "start": "ng serve --prod --aot",
     "build": "ng build --prod --aot",
     "test": "ng test",
-    "test:ci": "ng test --code-coverage --progress=false --single-run --browsers=Chrome_Headless",
+    "test:ci": "ng test --code-coverage --progress=false --watch=false --browsers=Chrome_Headless",
     "protractor": "node node_modules/protractor/bin/protractor protractor.conf.js",
     "lint": "ng lint",
     "e2e": "ng e2e"

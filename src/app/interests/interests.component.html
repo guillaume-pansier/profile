@@ -1,3 +1,109 @@
-<p>
-  interests works!
-</p>
+<div class="flex-container">
+  <mat-card class="mat-card">
+    <mat-card-title-group>
+      <mat-card-title>Sports</mat-card-title>
+      <mat-card-subtitle>Just play. Have fun. Enjoy the game.
+        <br/>Michael Jordan</mat-card-subtitle>
+      <img mat-card-sm-image src="assets/sport.svg" />
+    </mat-card-title-group>
+    <img mat-card-image src="assets/sport_paint.jpg" />
+    <mat-card-content>
+      <p>
+        Sport has always been an important part of my life, although it has been more and more difficult to find the time :)
+      </p>
+      <p class="h6">
+        Practiced sports
+      </p>
+      <ul>
+        <li>badminton</li>
+        <li>running</li>
+        <li>tennis</li>
+        <li>swimming</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mat-card">
+    <mat-card-title-group>
+      <mat-card-title>Reading</mat-card-title>
+      <mat-card-subtitle>Reading is to the mind what exercise is to the body.
+        <br/>Joseph Addison</mat-card-subtitle>
+      <img mat-card-sm-image src="assets/book.svg" />
+    </mat-card-title-group>
+    <img mat-card-image src="assets/books.jpg" />
+    <mat-card-content>
+      <p>
+        I used to steal books from my father's bookshelve and spend afternoons reading them, mostly science-fiction and fantasy books.
+      </p>
+      <p>
+        Now, even if afternoons became couple of hours, I'm still a big fan of reading, and it's also for me an excellent way of
+        learning languages.
+      </p>
+      <p class="h6">
+        Latest books
+      </p>
+      <ul>
+        <li>Ready player one (Ernest Cline)</li>
+        <li>De helaasheid der dingen (Dimitri Verhulst)</li>
+        <li>De groene Engeltoren (Tad Williams)</li>
+        <li>Le juif errant (Jean d'Ormesson)</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mat-card">
+    <mat-card-title-group>
+      <mat-card-title>Travels</mat-card-title>
+      <mat-card-subtitle>Every day is a journey, and the journey itself is home.
+        <br/>Matsuo Basho</mat-card-subtitle>
+      <img mat-card-sm-image src="assets/travel.svg" />
+    </mat-card-title-group>
+    <img mat-card-image src="assets/travel_paint.jpg" />
+    <mat-card-content>
+      <p>Discovering new cultures, new languages, new landscapes, new food... Travelling abroad is really one my favourite hobby.</p>
+      <p>And that's a good thing, because a lot of countries are still awaiting me :)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="['./travel']" mat-raised-button color="primary">Display visited countries</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="mat-card">
+    <mat-card-title-group>
+      <mat-card-title>Languages</mat-card-title>
+      <mat-card-subtitle>To have another language is to possess a second soul.
+        <br/>Charlemagne</mat-card-subtitle>
+      <img mat-card-sm-image src="assets/language.svg" />
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>Languages are fascinating.</p>
+      <p>
+        I had several opportunities to go to Germany during my studies, and that opened my mind to foreign languages.
+      </p>
+      <p>
+        I can now "speak" French, English, Dutch, a bit of German, and I'd really like to learn Italian.
+      </p>
+      <p> I usually learn on my own, mostly with applications like
+        <a href="https://www.duolingo.com/">Duolinguo</a>, and once I have a sufficient knowledge of the language, I try to find books that fit my level.
+      </p>
+      <p>
+        Let's see how far I can go !
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mat-card">
+    <mat-card-title-group>
+      <mat-card-title>Video Games</mat-card-title>
+      <img mat-card-sm-image src="assets/gamepad.svg" />
+    </mat-card-title-group>
+    <mat-card-content>
+      <iframe width="100%" src="https://www.youtube.com/embed/cE6wxDqdOV0">
+      </iframe>
+      <p class="h6">
+        Latest played
+      </p>
+      <ul>
+        <li>Starcraft 2</li>
+        <li>Hearthstone</li>
+        <li>The Witcher: the Wild Hunt</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>

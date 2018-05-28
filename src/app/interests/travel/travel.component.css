@@ -1,0 +1,17 @@
+.map-svg {
+  vertical-align: top;
+  display:inline-block;
+  white-space: normal;
+  width: 100%;
+  height: auto;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%; /* Or whatever */
+}
+
+.mat-card {
+  width: 80%;  /* Or whatever */
+  margin: 20px auto;  /* Magic! */
+}

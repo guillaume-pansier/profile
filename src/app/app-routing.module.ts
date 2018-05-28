@@ -15,8 +15,8 @@ const routes: Route[] = [
   { path: '', component: LayoutComponent, children: [
     { path: 'welcome', component: HomeComponent},
     { path: 'aboutme', component: AboutmeComponent},
-    { path: 'interests', component: InterestsComponent},
-    { path: 'playground', component: PlaygroundComponent}
+    { path: 'playground', component: PlaygroundComponent},
+    { path: 'interests', loadChildren: 'app/interests/interest.module#InterestModule'}
   ]},
   { path: '**', redirectTo: 'welcome'},
 ];

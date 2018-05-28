@@ -1,0 +1,20 @@
+[
+    { "countryIds": ["TN"], "year": 2005 },
+    { "countryIds": ["AT", "HU"], "year": 2009 },
+    { "countryIds": ["EG"], "year": 2008 },
+    { "countryIds": ["US"], "year": 2010 },
+    { "countryIds": ["CA"], "year": 2011 },
+    { "countryIds": ["KH"], "year": 2012 },
+    { "countryIds": ["FI", "EE", "PL"], "year": 2014 },
+    { "countryIds": ["IT"], "year": 2015 },
+    { "countryIds": ["DK"], "year": 2015 },
+    { "countryIds": ["IE"], "year": 2015 },
+    { "countryIds": ["AT"], "year": 2015 },
+    { "countryIds": ["IT"], "year": 2016 },
+    { "countryIds": ["GB"], "year": 2016 },
+    { "countryIds": ["JO"], "year": 2016 },
+    { "countryIds": ["NL"], "year": 2016 },
+    { "countryIds": ["PT"], "year": 2017 },
+    { "countryIds": ["ES"], "year": 2017 },
+    { "countryIds": ["SE"], "year": 2017 }
+  ]

@@ -17,7 +17,9 @@ export class AboutmeComponent implements OnInit {
     { category: 'Work Experience', events: [ { date: 'just now', title: 'Loading events'}]}
   ];
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService) {
+
+  }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(

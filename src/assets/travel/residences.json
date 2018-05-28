@@ -1,0 +1,5 @@
+[
+    { "countryId": "FR", "numberOfYears": 20 },
+    { "countryId": "DE", "numberOfYears": 2 },
+    { "countryId": "BE", "numberOfYears": 3 }
+  ]

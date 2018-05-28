@@ -11,16 +11,15 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { InterestsComponent } from './interests/interests.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { AboutmeModule } from './aboutme/aboutme.module';
+import { InterestModule } from './interests/interest.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InterestsComponent,
     PlaygroundComponent
 ],
   imports: [

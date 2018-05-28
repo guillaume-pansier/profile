@@ -2,6 +2,7 @@
   flex-basis: 30%;
   max-width: 500px;
   margin: 30px;
+  flex-grow: 1;
 }
 
 video {
@@ -15,13 +16,13 @@ video {
   flex-wrap: wrap;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* Small screens */
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
   .mat-card {
-    flex-basis: 30%;
+    flex-basis: 50%;
     max-width: 350px;
     margin: 15px;
     flex-grow: 1;

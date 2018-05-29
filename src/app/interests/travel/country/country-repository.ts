@@ -33,18 +33,16 @@ export class CountryRepository {
         return of(this.countries);
       }
 
-      return zip(this.fetchRawSVGContries(), this.fetchCountryCodes()).pipe(
-        map((xmlDocument, codeList) => {
-          const xmlJsonConverter = require('xml-js');
-          const countriesJson = xmlJsonConverter.xml2js(xmlDocument, {compact: false, spaces: 4});
+      const xmlJsonConverter = require('xml-js');
 
+      return zip(this.fetchRawSVGContries(), this.fetchCountryCodes()).pipe(
+        map(([xmlDocument, codeList]) => {
+          const countriesJson = xmlJsonConverter.xml2js(xmlDocument, {compact: false, spaces: 4});
           for (const countryJson of countriesJson.elements[0].elements) {
 
-            if (countryJson.name !== 'g') {
-              continue;
+            if (countryJson.name === 'g') {
+              this.countries.push(this.parseCountry(countryJson, codeList, xmlJsonConverter));
             }
-
-            this.countries.push(this.parseCountry(countryJson, codeList, xmlJsonConverter));
           }
 
           return this.countries;

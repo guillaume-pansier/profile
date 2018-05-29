@@ -7,6 +7,8 @@ export const STYLE_CLASS_HOVER = 'landxxHover';
 export const STYLE_CLASS_VISITED = 'visited';
 
 @Component({
+  // hack to have correct SVG xml but angular components !
+  // tslint:disable-next-line:component-selector
   selector: 'g',
   templateUrl: './country-svg.component.html',
   styleUrls: ['./country-svg.component.css']

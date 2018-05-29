@@ -1,6 +1,5 @@
 import { TripService } from './trip/trip-service';
 import { Component, OnInit, AfterViewInit, Inject, ViewChildren, QueryList } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
 import { Country } from './country/country';
 import { mergeMap, map } from 'rxjs/operators';
 import { Observable, of, zip } from 'rxjs';
@@ -10,6 +9,7 @@ import { Trip } from './trip/Trip';
 import { MatSnackBar } from '@angular/material';
 import { Residence } from './residence/residence';
 import { ResidenceService } from './residence/residence-service';
+import { DOCUMENT } from '@angular/common';
 
 
 @Component({

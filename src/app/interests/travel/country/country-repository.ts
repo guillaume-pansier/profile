@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Country } from './country';
-import { Observable, of, zip } from 'rxjs';
+import { Observable, of, zip, throwError } from 'rxjs';
 
 
 @Injectable()
@@ -33,8 +33,8 @@ export class CountryRepository {
         return of(this.countries);
       }
 
-      return zip(this.fetchRawSVGContries(), this.fetchCountryCodes(),
-        (xmlDocument, codeList) => {
+      return zip(this.fetchRawSVGContries(), this.fetchCountryCodes()).pipe(
+        map((xmlDocument, codeList) => {
           const xmlJsonConverter = require('xml-js');
           const countriesJson = xmlJsonConverter.xml2js(xmlDocument, {compact: false, spaces: 4});
 
@@ -49,7 +49,7 @@ export class CountryRepository {
 
           return this.countries;
         }
-      );
+      ));
     }
 
     private parseCountry(countryJson, codeList, convert): Country {
@@ -91,14 +91,14 @@ export class CountryRepository {
       const headers = new HttpHeaders().set('Content-Type', 'text/xml');
 
       return this.httpClient.get('assets/travel/BlankMap-World_1985.svg', { headers: headers, responseType: 'text' }).pipe(
-        catchError((error: any) => Observable.throw(error.json().error || 'Server error'))
+        catchError((error: any) => throwError(error.json().error || 'Server error'))
       );
     }
 
     fetchCountryCodes(): Observable<Object> {
 
       return this.httpClient.get('assets/travel/countryISOCode.json', { responseType: 'json' }).pipe(
-        catchError((error: any) => Observable.throw(error.json().error || 'Server error'))
+        catchError((error: any) => throwError(error.json().error || 'Server error'))
       );
     }
 }

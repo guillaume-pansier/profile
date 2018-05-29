@@ -31,6 +31,8 @@ export class TravelComponent implements OnInit, AfterViewInit {
 
   }
 
+  trackByCountries(index: number, country: Country): string { return country.id; }
+
   ngOnInit(): void {
 
     zip(

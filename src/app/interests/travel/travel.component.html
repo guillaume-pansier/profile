@@ -164,9 +164,9 @@
         </style>
 
 
-        <a *ngFor="let country of this.countries; trackBy:country?.id">
-          <g id="{{country.id}}" [country]="country" (click)="onClickCountry(country)" (mouseover)="onHoverCountry(country)" (mouseleave)="onLeaveCountry(country)"
-          />
+        <a *ngFor="let country of this.countries; trackBy: trackByCountries">
+          <g id="{{country.id}}" [country]="country" (click)="onClickCountry(country)"
+          (mouseover)="onHoverCountry(country)" (mouseleave)="onLeaveCountry(country)" />
         </a>
 
       </svg>

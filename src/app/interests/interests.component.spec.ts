@@ -1,3 +1,5 @@
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatCardModule } from '@angular/material/card';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -11,7 +13,11 @@ describe('InterestsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterestsComponent ]
+      declarations: [ InterestsComponent ],
+      imports: [
+        MatCardModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));

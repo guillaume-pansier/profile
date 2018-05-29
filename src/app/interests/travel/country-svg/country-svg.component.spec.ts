@@ -19,6 +19,7 @@ describe('CountrySVGComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CountrySVGComponent);
     component = fixture.componentInstance;
+    component.country = { pathSvgFormat: '<div>test</div>', id: 'countryId', name: 'countryName'}
     fixture.detectChanges();
   });
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, mergeMap } from 'rxjs/operators';
-import { Trip } from './Trip';
+import { Trip } from './trip';
 import { Observable, of } from 'rxjs';
 
 @Injectable()

@@ -5,7 +5,7 @@ import { mergeMap, map } from 'rxjs/operators';
 import { Observable, of, zip } from 'rxjs';
 import { STYLE_CLASS_NORMAL, STYLE_CLASS_HOVER, STYLE_CLASS_VISITED, CountrySVGComponent } from './country-svg/country-svg.component';
 import { CountryRepository } from './country/country-repository';
-import { Trip } from './trip/Trip';
+import { Trip } from './trip/trip';
 import { MatSnackBar } from '@angular/material';
 import { Residence } from './residence/residence';
 import { ResidenceService } from './residence/residence-service';

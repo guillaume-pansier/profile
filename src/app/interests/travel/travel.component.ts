@@ -1,8 +1,8 @@
 import { TripService } from './trip/trip-service';
-import { Component, OnInit, AfterViewInit, Inject, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, ViewChildren, QueryList, OnDestroy } from '@angular/core';
 import { Country } from './country/country';
 import { mergeMap, map } from 'rxjs/operators';
-import { Observable, of, zip } from 'rxjs';
+import { Observable, of, zip, Subscription } from 'rxjs';
 import { STYLE_CLASS_NORMAL, STYLE_CLASS_HOVER, STYLE_CLASS_VISITED, CountrySVGComponent } from './country-svg/country-svg.component';
 import { CountryRepository } from './country/country-repository';
 import { Trip } from './trip/trip';
@@ -17,11 +17,12 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './travel.component.html',
   styleUrls: ['./travel.component.css']
 })
-export class TravelComponent implements OnInit, AfterViewInit {
+export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
 
   countries: Country[];
   trips: Trip[] = [];
   residences: Residence[] = [];
+  subscription: Subscription;
 
   @ViewChildren(CountrySVGComponent) svgCountries: QueryList<CountrySVGComponent>;
 
@@ -31,15 +32,22 @@ export class TravelComponent implements OnInit, AfterViewInit {
 
   }
 
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
   trackByCountries(index: number, country: Country): string { return country.id; }
 
   ngOnInit(): void {
 
-    zip(
+    this.subscription = zip(
       this.tripService.getTrips(),
       this.countryRepository.loadCountries(),
       this.residenceService.getResidences()
-    ).subscribe(([trips, countries, residences]) => {
+    )
+    .subscribe(([trips, countries, residences]) => {
       this.trips = trips;
       this.countries = countries;
       this.residences = residences;

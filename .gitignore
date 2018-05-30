@@ -40,3 +40,11 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# karma testem
+Chrome_*
+HeadlessChrome_*
+
+.bash_history
+.node_repl_history
+update-notifier-npm.json

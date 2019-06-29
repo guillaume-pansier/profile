@@ -1,3 +1,31 @@
-<p>
-  playground works!
-</p>
+
+<div class="flex-container">
+        <mat-card id="website-card" [class.mat-elevation-z2]="angularClicked" [class.mat-elevation-z8]="!angularClicked" 
+        (click)="clickAngular()" 
+        class="techno-card mt-4">
+            <mat-card-header >
+              <mat-card-title class="emphasize primary">Website</mat-card-title>
+            </mat-card-header>
+            <img class="img-card" mat-card-image src="assets/code.webp" />
+          </mat-card>
+          
+          <mat-card id="cicd-card" [class.mat-elevation-z2]="cicdClicked" [class.mat-elevation-z8]="!cicdClicked" 
+          (click)="clickCicd()" 
+          class="techno-card mt-4">
+            <mat-card-header>
+              <mat-card-title class="emphasize secondary">CI/CD</mat-card-title>
+            </mat-card-header>
+            <img [class.img-card]="true" mat-card-image src="assets/gearing.jpg" />
+          </mat-card>
+</div>
+
+<div class="flex-container">
+    <div [@changeSize]="currentState"
+          (@changeSize.done)="animationDone($event)" 
+          class="draw-border portal-wrapper mt-5 mb-5" 
+          [class.click-angular]="angularActive"
+          [class.click-cicd]="cicdActive"
+          >
+      <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+    </div>
+</div>

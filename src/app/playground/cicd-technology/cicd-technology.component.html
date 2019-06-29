@@ -1,0 +1,66 @@
+<div id="cicd-technologies" class="container mat-typography">
+  <h2>Continuous Integration and Development</h2>
+  <p>
+    Continuous Integration and Development have been set up at the very beginning of the project, mostly with the following tools:
+  </p>
+  <mat-list>
+    <mat-list-item>
+        <img matListAvatar src="/assets/jenkins.webp" alt="Jenkins logo">
+        <p matLine>Jenkins</p>
+    </mat-list-item>
+    <mat-list-item>
+        <img matListAvatar src="/assets/vertical.png" alt="docker logo">
+        <p matLine>Docker</p>
+    </mat-list-item>
+    <mat-list-item>
+        <img matListAvatar src="/assets/logo-amazon-simple-storage-service.png" alt="Amazon s3 logo">
+        <p matLine>AWS S3 + AWS Coudfront</p>
+    </mat-list-item>
+  </mat-list>
+
+  <h3 class="mt-4">Description of the CI/CD Pipeline</h3>
+  <mat-slide-toggle *ngIf="(isSmallScreen$ | async)" class="mb-4" (click)="onDetailedViewClick()">Detailed view</mat-slide-toggle>
+
+
+  <div class="flex-container">
+    <img *ngIf="!(isSmallScreen$ | async) || !detailview" src="assets/cicd-diagram.svg" class="diagram"/>
+    <mat-divider *ngIf="!(isSmallScreen$ | async)" class="divider" [vertical]="true">
+    </mat-divider>
+    <mat-vertical-stepper class="diagram-stepper" *ngIf="!(isSmallScreen$ | async) || detailview">
+      <mat-step label="Start">
+        <p>The Jenkins job is triggered by a change in the code repository.</p>
+      </mat-step>
+      <mat-step label="SCM checkout">
+        <p>The code source is downloaded. The Jenkins file present at the root is then found and parsed.</p>
+      </mat-step>
+      <mat-step label="Fetch dependencies">
+        <p>In an isolated docker container, the dependencies of the project are downloaded.</p>
+        <p>The container is created from a Node image. A simple <i>npm install</i> completes the step.</p>
+      </mat-step>
+      <mat-step label="Lint">
+        <p>In the docker container created in the previous step, <i>ng lint</i> is executed. It ensures that best practices are followed throughout the project.</p>
+        <p>Upon any error reported by angular-cli, the build will fail.</p>
+      </mat-step>
+      <mat-step label="Unit tests">
+        <p>In a new docker container provided with modern browsers, the Unit tests are ran: <i>ng test --code-coverage --progress=false --watch=false --browsers=Chrome_Headless</i></p>
+        <p>If any test fails, the Jenkins build will fail.</p>
+        <p>Test coverage statistics are also saved and displayed in Jenkins.</p>
+      </mat-step>
+      <mat-step label="End2End Tests">
+        <p>End to End tests are performed in parallel on Chrome and Firefox with standalone Selenium docker images.</p>
+        <p>In order to make it work, a docker image of the app is first created. A container is ran and exposes the website.</p>
+        <p>Selenium containers for Chrome and Firefox are also created and linked to the website container.</p>
+        <p>Finally, a third node container, linked with the previous ones executes
+           <i>npm run protractor -- --baseUrl=http://{{'{'}}linkedWebSite{{'}'}} --seleniumAddress=http://{{'{'}}linkedSelenium{{'}'}} --browser={{'{'}}chrome|firefox{{'}'}}</i>
+        </p>
+      </mat-step>
+      <mat-step label="Build">
+        <p>The tests are succesful, best practices are followed, the solution can therefore be built: <i>ng build --prod --aot --build-optimizer</i></p>
+      </mat-step>
+      <mat-step label="Deploy">
+        <p>In case of a release, the pipeline goes further and deploy the package to AWS S3 (static website), 
+          then invalidates the CloudFront distribution serving the content of the S3 bucket.</p>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</div>

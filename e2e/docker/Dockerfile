@@ -16,7 +16,7 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 USER node
 
 ## Dependencies
-COPY package.json ./
+COPY package*.json ./
 RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 RUN npm i
 
@@ -27,7 +27,7 @@ RUN mkdir ./ng-app && cp -R ./node_modules ./ng-app
 WORKDIR ./ng-app
 COPY . .
 
-RUN npm i -g @angular/cli@1.7.3
+RUN npm i -g @angular/cli@6.0.1
 
 EXPOSE 4200
 

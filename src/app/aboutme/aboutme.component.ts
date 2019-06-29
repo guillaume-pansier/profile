@@ -1,8 +1,7 @@
-import { Component, OnInit, AfterViewChecked, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { TimedEvent } from './timed-event/timed-event';
-import { Http, Headers, Response } from '@angular/http';
-import { EventService } from './event.service';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { EventService } from './event.service';
+import { TimedEvent } from './timed-event/timed-event';
 
 
 @Component({

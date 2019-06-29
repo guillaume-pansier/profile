@@ -1,0 +1,28 @@
+.flex-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.divider {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.diagram {
+    height: 800px;
+}
+
+.diagram-stepper {
+ max-width: 500px;
+}
+
+@media all and (max-width: 900px) {
+    .diagram {
+        height: 600px;
+    }
+    .divider {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

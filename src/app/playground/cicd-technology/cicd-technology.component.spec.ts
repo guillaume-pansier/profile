@@ -4,12 +4,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 // tslint:disable-next-line:max-line-length
 import { MatButtonModule, MatCardModule, MatDividerModule, MatGridListModule, MatListModule, MatSlideToggleModule, MatStepperModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlaygroundComponent } from './playground.component';
+import { CicdTechnologyComponent } from './cicd-technology.component';
 
 
-describe('PlaygroundComponent', () => {
-  let component: PlaygroundComponent;
-  let fixture: ComponentFixture<PlaygroundComponent>;
+describe('CicdTechnologyComponent', () => {
+  let component: CicdTechnologyComponent;
+  let fixture: ComponentFixture<CicdTechnologyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,13 +24,13 @@ describe('PlaygroundComponent', () => {
         MatStepperModule,
         MatSlideToggleModule
       ],
-      declarations: [ PlaygroundComponent ]
+      declarations: [ CicdTechnologyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlaygroundComponent);
+    fixture = TestBed.createComponent(CicdTechnologyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

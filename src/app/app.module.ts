@@ -1,3 +1,4 @@
+import { PlaygroundModule } from './playground/playground.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PlaygroundComponent } from './playground/playground.component';
 import { AboutmeModule } from './aboutme/aboutme.module';
 import { InterestModule } from './interests/interest.module';
 
@@ -19,8 +19,7 @@ import { InterestModule } from './interests/interest.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PlaygroundComponent
+    HomeComponent
 ],
   imports: [
     LayoutModule,
@@ -31,7 +30,8 @@ import { InterestModule } from './interests/interest.module';
     MatCardModule,
     MatListModule,
     MatIconModule,
-    AboutmeModule
+    AboutmeModule,
+    PlaygroundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

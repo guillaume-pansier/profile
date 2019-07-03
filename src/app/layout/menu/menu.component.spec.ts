@@ -39,8 +39,8 @@ describe('MenuComponent', () => {
     expect(component.navLinks.find(value => value.path === 'interests')).toBeTruthy();
   });
 
-  it('should contain link to playground', () => {
-    expect(component.navLinks.find(value => value.path === 'playground')).toBeTruthy();
+  it('should contain link to technologies', () => {
+    expect(component.navLinks.find(value => value.path === 'technologies')).toBeTruthy();
   });
 
   it('should contain link to aboutme', () => {

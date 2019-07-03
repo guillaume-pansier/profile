@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
     {label: 'Welcome', path: 'welcome'},
     {label: 'About me', path: 'aboutme'},
     {label: 'Interests', path: 'interests'},
-    {label: 'Playground', path: 'playground'}
+    {label: 'Technology', path: 'technologies'}
   ];
 
   }

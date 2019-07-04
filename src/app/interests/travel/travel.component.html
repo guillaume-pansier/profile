@@ -1,5 +1,14 @@
 <div class="flex-container">
-  <mat-card class="mat-card">
+  <!-- use of class 'hidden' instead of ngIF because the components <g> used below need to be created in the DOM while loading:
+  <a *ngFor="let country of this.countries; trackBy: trackByCountries">
+          <g id="{{country.id}}" [country]="country" (click)="onClickCountry(country)"
+          (mouseover)="onHoverCountry(country)" (mouseleave)="onLeaveCountry(country)" />
+  </a>
+  After they are created, a hook triggers an update on them in the TS file.
+  Only then is it ready.
+  With ngIF, the components are not created, the hook is not triggered, loading is always true.
+   -->
+  <mat-card class="mat-card" [class.hidden]="loading">
     <mat-card-content>
       <svg class="map-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2752.77 1537.63">
         <style id="style_css_sheet" type="text/css">
@@ -174,4 +183,5 @@
 
   </mat-card>
 
+  <mat-spinner *ngIf="loading" class="mt-4 mb-4"></mat-spinner>
 </div>

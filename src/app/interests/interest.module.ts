@@ -12,6 +12,7 @@ import { TravelComponent } from './travel/travel.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TripService } from './travel/trip/trip-service';
 import { ResidenceService } from './travel/residence/residence-service';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ResidenceService } from './travel/residence/residence-service';
     MatButtonModule,
     MatIconModule,
     InterestRoutingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     InterestsComponent,

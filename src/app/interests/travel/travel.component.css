@@ -9,9 +9,14 @@
 .flex-container {
   display: flex;
   width: 100%; /* Or whatever */
+  justify-content: center;
 }
 
 .mat-card {
   width: 80%;  /* Or whatever */
   margin: 20px auto;  /* Magic! */
+}
+
+.hidden {
+  display: none;
 }

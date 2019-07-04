@@ -23,6 +23,7 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
   trips: Trip[] = [];
   residences: Residence[] = [];
   subscription: Subscription;
+  loading = true;
 
   @ViewChildren(CountrySVGComponent) svgCountries: QueryList<CountrySVGComponent>;
 
@@ -52,7 +53,7 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
       this.countries = countries;
       this.residences = residences;
     },
-      () => { },
+      () => {  this.loading = false; },
       () => { });
 
   }
@@ -64,19 +65,20 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
     } else {
       this.svgCountries.changes
         .subscribe(() => { this.loaTrips(); },
-        () => { },
+        () => { this.loading = false; },
         () => { }
       );
     }
   }
 
   private loaTrips(): void {
-
     const visitedCountries = this.trips.map(trip => trip.countryIds).reduce((previous, actual, []) => {
       return previous.concat(...actual);
     });
     visitedCountries.push(...this.residences.map(residence => residence.countryId));
     this.colorCountries(visitedCountries);
+    // async because updating 'loading' synchronously in AfterViewInit will throw an error
+    setTimeout(() => this.loading = false, 0);
   }
 
   onClickCountry(country: Country) {

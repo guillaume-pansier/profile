@@ -16,5 +16,6 @@
     { "countryIds": ["NL"], "year": 2016 },
     { "countryIds": ["PT"], "year": 2017 },
     { "countryIds": ["ES"], "year": 2017 },
-    { "countryIds": ["SE"], "year": 2017 }
+    { "countryIds": ["SE"], "year": 2017 },
+    { "countryIds": ["CL", "BO", "AR", "BR", "PY", "UY", "PE"], "year": 2019 }
   ]

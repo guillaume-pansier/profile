@@ -1,37 +1,53 @@
 <div class="container-flex">
   <mat-card>
-    <ngb-carousel *ngIf="images">
+    <ngb-carousel>
       <ng-template ngbSlide>
-        <img class="carouseel-img" [src]="images[0]" alt="Random first slide">
-        <div class="carousel-caption">
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
+        <a [routerLink]="[ '/aboutme']">
+          <img class="carouseel-img" src="/assets/caroussel/whoami.jpg" alt="about me logo"/>
+          <div class="carousel-caption mat-typography">
+            <h2>About me</h2>
+            <p>A digital resume</p>
+          </div>
+        </a>
       </ng-template>
       <ng-template ngbSlide>
-        <img class="carouseel-img" [src]="images[1]" alt="Random second slide">
-        <div class="carousel-caption">
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        <a [routerLink]="[ '/interests']">
+          <img class="carouseel-img" src="/assets/caroussel/hobbies.jpg" alt="My interests logo"/>
+          <div class="carousel-caption mat-typography">
+            <h2>Interests</h2>
+            <p>What I like to do, when I stop coding</p>
+          </div>
+        </a>
       </ng-template>
       <ng-template ngbSlide>
-        <img class="carouseel-img" [src]="images[2]" alt="Random third slide">
-        <div class="carousel-caption">
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
+        <a [routerLink]="[ '/technologies']">
+          <img class="carouseel-img" src="/assets/caroussel/technology.jpg" alt="Technoloy logo"/>
+          <div class="carousel-caption mat-typography">
+            <h2>Technoloy</h2>
+            <p>Behind the scene<span class="hidden-when-small">: what the website hides</span></p>
+          </div>
+        </a>
       </ng-template>
     </ngb-carousel>
   </mat-card>
 </div>
 
-<div style="text-align:center">
+<div style="text-align:center" class="mat-typography mt-5 mb-5">
   <h1>
     {{ title }}
   </h1>
+  <p class="lead">
+    Hi ! I'm Guillaume Pansier, a <span class="strikethrough"> developer</span>  Full Stack DevOps Engineer. 
+    You'll find here a bit of everything about me - who I am, what I've done, even where I've been :)
+  </p>
+  <p class="lead">
+    This website is also my way to keep up touch with the latest technologies, so you'll see a lot about those too. 
+  </p>
+  <p class="lead">
+    Enjoy your visit !
+  </p>
 </div>
-<div class="logo-container">
+<div class="logo-container mb-5">
   <a href="https://angular.io/">
     <img class="logo" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
   </a>

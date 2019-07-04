@@ -5,7 +5,7 @@
   </p>
   <mat-list>
     <mat-list-item>
-        <img matListAvatar src="/assets/jenkins.webp" alt="Jenkins logo">
+        <img matListAvatar src="/assets/jenkins.png" alt="Jenkins logo">
         <p matLine>Jenkins</p>
     </mat-list-item>
     <mat-list-item>
@@ -23,7 +23,7 @@
 
 
   <div class="flex-container">
-    <img *ngIf="!(isSmallScreen$ | async) || !detailview" src="assets/cicd-diagram.svg" class="diagram"/>
+    <img *ngIf="!(isSmallScreen$ | async) || !detailview" src="assets/cicd-diagram.png" class="diagram"/>
     <mat-divider *ngIf="!(isSmallScreen$ | async)" class="divider" [vertical]="true">
     </mat-divider>
     <mat-vertical-stepper class="diagram-stepper" *ngIf="!(isSmallScreen$ | async) || detailview">

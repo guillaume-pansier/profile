@@ -136,8 +136,10 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
   private addCountryStyle(countryId, style) {
     const countryContainer = this.document.getElementById(countryId);
     countryContainer.classList.add(style);
-    for (const child of countryContainer.children) {
-      child.classList.add(style);
+    if (countryContainer.children) {
+      for (const child of countryContainer.children) {
+        child.classList.add(style);
+      }
     }
   }
 

@@ -1,15 +1,14 @@
-import { TripService } from './trip/trip-service';
-import { Component, OnInit, AfterViewInit, Inject, ViewChildren, QueryList, OnDestroy } from '@angular/core';
-import { Country } from './country/country';
-import { mergeMap, map } from 'rxjs/operators';
-import { Observable, of, zip, Subscription } from 'rxjs';
-import { STYLE_CLASS_NORMAL, STYLE_CLASS_HOVER, STYLE_CLASS_VISITED, CountrySVGComponent } from './country-svg/country-svg.component';
-import { CountryRepository } from './country/country-repository';
-import { Trip } from './trip/trip';
+import { DOCUMENT } from '@angular/common';
+import { AfterViewInit, Component, Inject, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Subscription, zip } from 'rxjs';
+import { CountrySVGComponent, STYLE_CLASS_HOVER, STYLE_CLASS_NORMAL, STYLE_CLASS_VISITED } from './country-svg/country-svg.component';
+import { Country } from './country/country';
+import { CountryRepository } from './country/country-repository';
 import { Residence } from './residence/residence';
 import { ResidenceService } from './residence/residence-service';
-import { DOCUMENT } from '@angular/common';
+import { Trip } from './trip/trip';
+import { TripService } from './trip/trip-service';
 
 
 @Component({
@@ -72,9 +71,9 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private loaTrips(): void {
-    const visitedCountries = this.trips.map(trip => trip.countryIds).reduce((previous, actual, []) => {
+    const visitedCountries = this.trips.map(trip => trip.countryIds).reduce((previous, actual) => {
       return previous.concat(...actual);
-    });
+    }, []);
     visitedCountries.push(...this.residences.map(residence => residence.countryId));
     this.colorCountries(visitedCountries);
     // async because updating 'loading' synchronously in AfterViewInit will throw an error

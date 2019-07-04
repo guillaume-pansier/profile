@@ -96,7 +96,7 @@ export class TravelComponent implements OnInit, AfterViewInit, OnDestroy {
         duration: 2000,
       });
     } else {
-      this.snackBar.open(`I\'ve neber been in ${country.name} !`, null, {
+      this.snackBar.open(`I\'ve never been in ${country.name} !`, null, {
         duration: 2000,
       });
     }

@@ -11,8 +11,9 @@
             "Java Rest API / Backend Developper (Spring 4, Spring Boot, CXF JAX-WS)",
             "batch processing (Spring Batch)",
             "Angular Front-end Developper (Angular 4, ngrx)",
-            "transversal projects: transition to GIT , CI/CD Jenkins pipeline, Java community animation, IT recruitment"
-          ]
+            "transversal projects: transition to GIT, CI/CD Jenkins pipeline, Java community animation, IT recruitment"
+          ],
+          "badge": "/assets/axa.png"
         }
       ]
     },
@@ -26,7 +27,9 @@
           "descriptionLines": [
             "specialization in communication-based system",
             "option in statistics"
-          ]
+          ],
+          "badge": "/assets/TU-Berlin-Logo.svg.png",
+          "image": "/assets/tub_diploma.jpg"
         },
         {
           "date": "2011 - 2015",
@@ -34,7 +37,9 @@
           "subtitle": "Ecole Centrale de Nantes",
           "descriptionLines": [
             "specialization in Computer Science"
-          ]
+          ],
+          "badge": "/assets/logo_centrale_nantes_fond_carre.jpg",
+          "image": "/assets/ecn_diploma.jpg"
         }
       ]
     },
@@ -43,7 +48,20 @@
       "events": [
         {
           "date": "2015",
-          "title": "ITIL Foundation Certification"
+          "title": "ITIL Foundation Certification",
+          "image": "/assets/certifications/itil_certification.jpg"
+        },
+        {
+          "date": "2017",
+          "title": "CloudBees Jenkins Engineer",
+          "badge": "/assets/certifications/jenkins_certificate_badge.png",
+          "image": "/assets/certifications/jenkins_certificate.png"
+        },
+        {
+          "date": "2018",
+          "title": "AWS Certified Cloud Practitioner",
+          "image": "/assets/certifications/aws_certificate.png",
+          "badge": "/assets/certifications/AWS-Cloud-alt_dark-bg.svg"
         }
       ]
     }

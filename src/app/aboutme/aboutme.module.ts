@@ -4,6 +4,7 @@ import { AboutmeComponent } from './aboutme.component';
 import { TimedEventComponent } from './timed-event/timed-event.component';
 import { DrawerSideComponent } from './drawer-side/drawer-side.component';
 import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
@@ -17,7 +18,8 @@ import { EventService } from './event.service';
     MatSidenavModule,
     MatCardModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   declarations: [
     AboutmeComponent,

@@ -12,7 +12,7 @@
 
         <ng-container *ngFor="let eventGroup of timedEventGroups">
           <h2>{{ eventGroup.category }}</h2>
-          <app-timed-event *ngFor="let event of eventGroup.events" [date]="event.date" [title]="event.title" [subtitle]="event.subtitle">
+          <app-timed-event *ngFor="let event of eventGroup.events" [date]="event.date" [title]="event.title" [subtitle]="event.subtitle" [badge]="event.badge" [eventImage]="event.image">
             <app-timed-event-description [descriptionLines]="event.descriptionLines"></app-timed-event-description>
           </app-timed-event>
         </ng-container>

@@ -2,9 +2,23 @@
   <h4 class="date">
     {{ date }}
   </h4>
+  
+  <img *ngIf="badge" [alt]="title + ' badge'" class="event-badge mr-3" matlistavatar [src]="badge">
   <div>
-    <h4 class="event-title">{{ title }}</h4>
+    <h4 class="event-title" [class.clickable]="!!eventImage" (click)="openEventImage()">{{ title }}</h4>
     <span  class="text-muted">{{ subtitle }}</span>
     <ng-content></ng-content>
   </div>
 </div>
+
+<ng-template #templatePortalContent>
+<div id="myModal" class="overlay-modal">
+
+    <!-- The Close Button -->
+    <span class="close" (click)="closeModal()">&times;</span>
+  
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" [src]="eventImage">
+  
+  </div>
+</ng-template>

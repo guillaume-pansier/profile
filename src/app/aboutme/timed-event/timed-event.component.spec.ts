@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimedEventComponent } from './timed-event.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 describe('TimedEventComponent', () => {
   let component: TimedEventComponent;
@@ -8,6 +9,9 @@ describe('TimedEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        OverlayModule
+      ],
       declarations: [ TimedEventComponent ]
     })
     .compileComponents();

@@ -19,12 +19,12 @@
   </mat-list>
 
   <h3 class="mt-4">Description of the CI/CD Pipeline</h3>
-  <mat-slide-toggle *ngIf="(isSmallScreen$ | async)" class="mb-4" (click)="onDetailedViewClick()">Detailed view</mat-slide-toggle>
+  <mat-slide-toggle #lol *ngIf="(isSmallScreen$ | async)" class="mb-4" (change)="onDetailedViewClick($event)" [checked]="detailview">Detailed view</mat-slide-toggle>
 
 
   <div class="flex-container">
     <img *ngIf="!(isSmallScreen$ | async) || !detailview" src="assets/cicd-diagram.png" class="diagram"/>
-    <mat-divider *ngIf="!(isSmallScreen$ | async)" class="divider" [vertical]="true">
+    <mat-divider *ngIf="!(isSmallScreen$ | async)" class="mr-3 ml-3" [vertical]="true">
     </mat-divider>
     <mat-vertical-stepper class="diagram-stepper" *ngIf="!(isSmallScreen$ | async) || detailview">
       <mat-step label="Start">

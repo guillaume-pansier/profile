@@ -15,7 +15,7 @@ export class CicdTechnologyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      const checkScreenSize = () => document.body.offsetWidth < 750;
+      const checkScreenSize = () => document.body.offsetWidth < 800;
 
     // Create observable from window resize event throttled so only fires every 500ms
       const screenSizeChanged$ = fromEvent(window, 'resize')
@@ -29,7 +29,7 @@ export class CicdTechnologyComponent implements OnInit {
       this.isSmallScreen$ = screenSizeChanged$.pipe(startWith(checkScreenSize()));
   }
 
-  onDetailedViewClick() {
-    this.detailview = !this.detailview;
+  onDetailedViewClick(change) {
+    this.detailview = change.checked;
   }
 }

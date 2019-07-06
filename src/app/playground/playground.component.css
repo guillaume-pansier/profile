@@ -16,17 +16,10 @@
   height: 180px;
 }
 
-@media all and (max-width: 640px) {
-  .img-card {
-    max-width: 200px;
-    height: 120px;
-  }
-
-  .techno-card {
-    margin-right: 5px;
-    margin-left: 5px;
-    cursor: pointer;
-  }
+.techno-card {
+  cursor: pointer;
+  width: fit-content;
+  max-width: 300px;
 }
 
 .emphasize {
@@ -34,12 +27,34 @@
   font-size: 20px;
 }
 
-.techno-card {
-  margin-right: 10px;
-  margin-left: 10px;
-  cursor: pointer;
-  width: fit-content;
-  max-width: 300px;
+@media all and (max-width: 660px) {
+  .img-card {
+    height: 120px;
+  }
+
+  .techno-card {
+    max-width: 200px;
+  }
+
+  .emphasize {
+    font-weight: 500;
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 464px) {
+  .img-card {
+    height: 80px;
+  }
+
+  .techno-card {
+    max-width: 132px;
+  }
+
+  .emphasize {
+    font-weight: 500;
+    font-size: 14px;
+  }
 }
 
 
@@ -51,6 +66,9 @@
 
 
 
+
+
+/* Animation */
 
 .draw-border {
   transition: color 0.900s 0.3s;

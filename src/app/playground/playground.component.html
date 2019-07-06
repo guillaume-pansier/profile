@@ -1,8 +1,8 @@
 
 <div class="flex-container">
-        <mat-card id="website-card" [class.mat-elevation-z2]="angularClicked" [class.mat-elevation-z8]="!angularClicked" 
-        (click)="clickAngular()" 
-        class="techno-card mt-4">
+        <mat-card id="website-card" [class.mat-elevation-z2]="websiteClicked" [class.mat-elevation-z8]="!websiteClicked" 
+        (click)="clickWebsite(portal)" 
+        class="techno-card mt-4 mr-3 ml-3">
             <mat-card-header >
               <mat-card-title class="emphasize primary">Website</mat-card-title>
             </mat-card-header>
@@ -10,8 +10,8 @@
           </mat-card>
           
           <mat-card id="cicd-card" [class.mat-elevation-z2]="cicdClicked" [class.mat-elevation-z8]="!cicdClicked" 
-          (click)="clickCicd()" 
-          class="techno-card mt-4">
+          (click)="clickCicd(portal)" 
+          class="techno-card mt-4 mr-3 ml-3">
             <mat-card-header>
               <mat-card-title class="emphasize secondary">CI/CD</mat-card-title>
             </mat-card-header>
@@ -19,11 +19,11 @@
           </mat-card>
 </div>
 
-<div class="flex-container">
+<div #portal class="flex-container">
     <div [@changeSize]="currentState"
           (@changeSize.done)="animationDone($event)" 
           class="draw-border portal-wrapper mt-5 mb-5" 
-          [class.click-angular]="angularActive"
+          [class.click-angular]="websiteActive"
           [class.click-cicd]="cicdActive"
           >
       <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>

@@ -3,6 +3,7 @@ import { ComponentPortal, Portal } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
 import { AngularTechnologyComponent } from './angular-technology/angular-technology.component';
 import { CicdTechnologyComponent } from './cicd-technology/cicd-technology.component';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-playground',
@@ -46,8 +47,8 @@ export class PlaygroundComponent implements OnInit {
   };
 
 
-  public angularClicked = false;
-  public angularActive = false;
+  public websiteClicked = false;
+  public websiteActive = false;
   public cicdClicked = false;
   public cicdActive = false;
   public selectedPortal: Portal<any>;
@@ -55,28 +56,32 @@ export class PlaygroundComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private observer: BreakpointObserver) { }
 
-  clickAngular() {
-    this.angularClicked = true;
-    setTimeout(() => this.angularClicked = false, 300);
+  clickWebsite(portalElement) {
+    this.websiteClicked = true;
+    setTimeout(() => this.websiteClicked = false, 300);
 
-    if (this.cicdActive) {
-      this.currentState = this.states.IN_TRANSITION;
-    } else if (this.angularActive) {
+    if (this.websiteActive) {
       this.currentState = this.states.INITIAL;
+    } else if (this.cicdActive) {
+      this.currentState = this.states.IN_TRANSITION;
     } else {
-      this.angularActive = !this.angularActive;
-      this.selectedPortal = new ComponentPortal(AngularTechnologyComponent);
-      this.currentState = this.states.FINAL;
+        this.websiteActive = !this.websiteActive;
+        this.selectedPortal = new ComponentPortal(AngularTechnologyComponent);
+        this.currentState = this.states.FINAL;
+    }
+
+    if (this.observer.isMatched('(max-width: 320px)')) {
+      portalElement.scrollIntoView( { behavior: 'smooth' , block: 'center' });
     }
   }
 
-  clickCicd() {
+  clickCicd(portalElement) {
     this.cicdClicked = true;
     setTimeout(() => this.cicdClicked = false, 300);
 
-    if (this.angularActive) {
+    if (this.websiteActive) {
       this.currentState = this.states.IN_TRANSITION;
     } else if (this.cicdActive) {
       this.currentState = this.states.INITIAL;
@@ -85,23 +90,27 @@ export class PlaygroundComponent implements OnInit {
       this.selectedPortal = new ComponentPortal(CicdTechnologyComponent);
       this.currentState = this.states.FINAL;
     }
+
+    if (this.observer.isMatched('(max-width: 320px)')) {
+      portalElement.scrollIntoView( { behavior: 'smooth' , block: 'center' });
+    }
   }
 
   animationDone(event) {
     if (event.toState === this.states.INITIAL) {
       this.cicdActive = false;
-      this.angularActive = false;
+      this.websiteActive = false;
       this.selectedPortal = null;
     } else if (event.toState === this.states.IN_TRANSITION) {
-      const futureState = [!this.cicdActive, !this.angularActive];
+      const futureState = [!this.cicdActive, !this.websiteActive];
       this.cicdActive = false;
-      this.angularActive = false;
+      this.websiteActive = false;
       setTimeout(() => {
         this.currentState = this.states.FINAL;
-        [this.cicdActive, this.angularActive] = futureState;
+        [this.cicdActive, this.websiteActive] = futureState;
         if (this.cicdActive) {
           this.selectedPortal = new ComponentPortal(CicdTechnologyComponent);
-        } else if (this.angularActive) {
+        } else if (this.websiteActive) {
           this.selectedPortal = new ComponentPortal(AngularTechnologyComponent);
         }
       }, 0);

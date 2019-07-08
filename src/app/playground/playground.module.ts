@@ -8,13 +8,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterModule } from '@angular/router';
 import { AngularTechnologyComponent } from './angular-technology/angular-technology.component';
 import { CicdTechnologyComponent } from './cicd-technology/cicd-technology.component';
-import { FeatureRoutingModule } from './playground-routing.module';
+import { PlaygroundRoutingModule } from './playground-routing.module';
 import { PlaygroundComponent } from './playground.component';
 
 
 @NgModule({
   imports: [
-    FeatureRoutingModule,
+    PlaygroundRoutingModule,
     CommonModule,
     MatGridListModule,
     MatButtonModule,

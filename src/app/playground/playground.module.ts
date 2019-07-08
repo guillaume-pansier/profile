@@ -5,18 +5,17 @@ import { MatDividerModule, MatListModule, MatSlideToggleModule, MatStepperModule
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 import { AngularTechnologyComponent } from './angular-technology/angular-technology.component';
 import { CicdTechnologyComponent } from './cicd-technology/cicd-technology.component';
+import { FeatureRoutingModule } from './playground-routing.module';
 import { PlaygroundComponent } from './playground.component';
 
 
 @NgModule({
   imports: [
+    FeatureRoutingModule,
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     MatGridListModule,
     MatButtonModule,
     MatCardModule,
@@ -27,6 +26,7 @@ import { PlaygroundComponent } from './playground.component';
     MatSlideToggleModule
   ],
   entryComponents: [AngularTechnologyComponent, CicdTechnologyComponent],
-  declarations: [PlaygroundComponent, AngularTechnologyComponent, CicdTechnologyComponent]
+  declarations: [PlaygroundComponent, AngularTechnologyComponent, CicdTechnologyComponent],
+  exports: [ RouterModule ]
 })
 export class PlaygroundModule { }

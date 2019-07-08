@@ -3,7 +3,6 @@ import { Route, RouterModule } from '@angular/router';
 import { AboutmeComponent } from './aboutme/aboutme.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
-import { PlaygroundComponent } from './playground/playground.component';
 
 
 
@@ -13,7 +12,7 @@ const routes: Route[] = [
   { path: '', component: LayoutComponent, children: [
     { path: 'welcome', component: HomeComponent},
     { path: 'aboutme', component: AboutmeComponent},
-    { path: 'technologies', component: PlaygroundComponent},
+    { path: 'technologies', loadChildren: 'app/playground/playground.module#PlaygroundModule'},
     { path: 'interests', loadChildren: 'app/interests/interest.module#InterestModule'}
   ]},
   { path: '**', redirectTo: 'welcome'},

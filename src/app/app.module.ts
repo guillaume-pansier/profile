@@ -1,19 +1,16 @@
-import { PlaygroundModule } from './playground/playground.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { LayoutModule } from './layout/layout-module';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatListModule } from '@angular/material/list';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutmeModule } from './aboutme/aboutme.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AboutmeModule } from './aboutme/aboutme.module';
-import { InterestModule } from './interests/interest.module';
+import { LayoutModule } from './layout/layout-module';
+
 
 
 @NgModule({
@@ -30,8 +27,7 @@ import { InterestModule } from './interests/interest.module';
     MatCardModule,
     MatListModule,
     MatIconModule,
-    AboutmeModule,
-    PlaygroundModule
+    AboutmeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

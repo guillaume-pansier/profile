@@ -1,19 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AboutmeComponent } from './aboutme.component';
-import { TimedEventComponent } from './timed-event/timed-event.component';
-import { DrawerSideComponent } from './drawer-side/drawer-side.component';
-import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
+import { AboutmeComponent } from './aboutme.component';
+import { DrawerSideComponent } from './drawer-side/drawer-side.component';
 import { EventService } from './event.service';
+import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
+import { TimedEventComponent } from './timed-event/timed-event.component';
+import { AboutmeRoutingModule } from './aboutme-routing.module';
+
 
 @NgModule({
   imports: [
+    AboutmeRoutingModule,
     CommonModule,
     MatSidenavModule,
     MatCardModule,
@@ -28,7 +31,8 @@ import { EventService } from './event.service';
     DrawerSideComponent
   ],
   exports: [
-    AboutmeComponent
+    AboutmeComponent,
+    RouterModule
   ],
   providers: [ EventService ]
 })

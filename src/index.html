@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Profile</title>
+  <title>Guillaume Pansier</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,8 +11,50 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
+  <style>
+    .loading-title-container {
+      background: #3f51b5;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    .loading-title {
+      color: #fff;
+      font: 550 20px/32px "Helvetica Neue",sans-serif;      
+    }
+
+  .point-one {
+      animation: color_anim 0.3s infinite 0.08s;
+  }
+
+  .point-two {
+      animation: color_anim 0.3s infinite 0.2s;
+  }
+
+  .point-three {
+      animation: color_anim 0.3s infinite 0.12s;
+  }
+
+  @keyframes color_anim {
+      0% {
+          color: white;
+      }
+      50% {
+        color: #3f51b5;
+      }
+      100% {
+        color: white;
+      }
+  }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+      <div class="loading-title-container">
+          <h1 class="loading-title">Guillaume Pansier <span class="point-one">.</span> <span class="point-two">.</span> <span class="point-three">.</span></h1>
+      </div>
+  </app-root>
 </body>
 </html>

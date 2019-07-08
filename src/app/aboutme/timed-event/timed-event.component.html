@@ -5,7 +5,14 @@
   
   <img *ngIf="badge" [alt]="title + ' badge'" class="event-badge mr-3" matlistavatar [src]="badge">
   <div>
-    <h4 class="event-title" [class.clickable]="!!eventImage" (click)="openEventImage()">{{ title }}</h4>
+    <h4 aria-label="event title and its image" *ngIf="!!eventImage; else simpleTitle" class="event-title clickable" (click)="openEventImage()">
+        {{ title }}
+        <mat-icon aria-hidden="false" [inline]="true">file_copy</mat-icon>
+    </h4>
+    <ng-template #simpleTitle>
+      <h4 class="event-title">{{ title }}</h4>
+    </ng-template>
+    
     <span  class="text-muted">{{ subtitle }}</span>
     <ng-content></ng-content>
   </div>

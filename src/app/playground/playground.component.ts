@@ -54,7 +54,9 @@ export class PlaygroundComponent implements OnInit {
   public selectedPortal: Portal<any>;
   public currentState = this.states.INITIAL;
 
-
+  // angular bug requires this: https://github.com/angular/angular/issues/24084
+  // animation.done event is triggered twice
+  private inTransition = false;
 
   constructor(private observer: BreakpointObserver) { }
 
@@ -66,6 +68,7 @@ export class PlaygroundComponent implements OnInit {
       this.currentState = this.states.INITIAL;
     } else if (this.cicdActive) {
       this.currentState = this.states.IN_TRANSITION;
+      this.inTransition = true; // https://github.com/angular/angular/issues/24084
     } else {
         this.websiteActive = !this.websiteActive;
         this.selectedPortal = new ComponentPortal(AngularTechnologyComponent);
@@ -83,6 +86,7 @@ export class PlaygroundComponent implements OnInit {
 
     if (this.websiteActive) {
       this.currentState = this.states.IN_TRANSITION;
+      this.inTransition = true; // https://github.com/angular/angular/issues/24084
     } else if (this.cicdActive) {
       this.currentState = this.states.INITIAL;
     } else {
@@ -101,7 +105,8 @@ export class PlaygroundComponent implements OnInit {
       this.cicdActive = false;
       this.websiteActive = false;
       this.selectedPortal = null;
-    } else if (event.toState === this.states.IN_TRANSITION) {
+    } else if (event.toState === this.states.IN_TRANSITION && this.inTransition) {
+      this.inTransition = false;  // https://github.com/angular/angular/issues/24084
       const futureState = [!this.cicdActive, !this.websiteActive];
       this.cicdActive = false;
       this.websiteActive = false;
@@ -114,7 +119,6 @@ export class PlaygroundComponent implements OnInit {
           this.selectedPortal = new ComponentPortal(AngularTechnologyComponent);
         }
       }, 0);
-      // TODO: complete
     }
   }
 

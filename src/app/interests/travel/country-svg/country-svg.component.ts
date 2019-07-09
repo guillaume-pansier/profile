@@ -1,21 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Country } from '../country/country';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
-export const STYLE_CLASS_NORMAL = 'landxx';
-export const STYLE_CLASS_HOVER = 'landxxHover';
-export const STYLE_CLASS_VISITED = 'visited';
 
 @Component({
-  // hack to have correct SVG xml but angular components !
   // tslint:disable-next-line:component-selector
-  selector: 'g',
+  selector: '[appCountrySvg]',
   templateUrl: './country-svg.component.html',
-  styleUrls: ['./country-svg.component.css']
+  styleUrls: ['./country-svg.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountrySVGComponent implements OnInit {
 
   @Input() country: Country;
+  @Input() visited: boolean;
+  hover = false;
   xml: SafeHtml;
 
   constructor(private sanitizer: DomSanitizer) {
@@ -26,4 +25,11 @@ export class CountrySVGComponent implements OnInit {
     this.xml = this.sanitizer.bypassSecurityTrustHtml(this.country.pathSvgFormat);
   }
 
+  onLeaveCountry() {
+    this.hover = false;
+  }
+
+  onHoverCountry() {
+    this.hover = true;
+  }
 }

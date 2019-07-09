@@ -1,18 +1,18 @@
-import { CountryRepository } from './travel/country/country-repository';
-import { CountrySVGComponent } from './travel/country-svg/country-svg.component';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InterestsComponent } from './interests.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { InterestRoutingModule } from './interests-routing-module';
-import { TravelComponent } from './travel/travel.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TripService } from './travel/trip/trip-service';
-import { ResidenceService } from './travel/residence/residence-service';
+import { NgModule } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
+import { InterestRoutingModule } from './interests-routing-module';
+import { InterestsComponent } from './interests.component';
+import { CountrySVGComponent } from './travel/country-svg/country-svg.component';
+import { CountryRepository } from './travel/country/country-repository';
+import { ResidenceService } from './travel/residence/residence-service';
+import { TravelComponent } from './travel/travel.component';
+import { TripService } from './travel/trip/trip-service';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material';
     InterestsComponent,
     TravelComponent,
     CountrySVGComponent
-],
+  ],
   exports: [ RouterModule ],
   providers: [
     CountryRepository,

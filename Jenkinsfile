@@ -120,7 +120,8 @@ pipeline {
                   files = s3FindFiles(bucket:'gpansier.com')
                   files.each { s3Delete bucket: 'gpansier.com', path: it.path }
               }
-            s3Upload bucket: 'gpansier.com', file: 'dist'
+            s3Upload bucket: 'gpansier.com', file: 'dist', cacheControl:'public,max-age=31536000', excludePathPattern:'**/index.html'
+            s3Upload bucket: 'gpansier.com', file: 'dist/index.html', cacheControl:'no-cache', path: 'index.html'
             cfInvalidate(distribution:'E2NRH8JTSJDT9U', paths:['/*'])
           }
       }

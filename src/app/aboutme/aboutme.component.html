@@ -2,7 +2,7 @@
   <mat-card>
     <mat-drawer-container>
       <mat-drawer #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches" class="drawer-side" >
-        <app-drawer-side></app-drawer-side>
+        <app-drawer-side [languages]="data.languages" [skills]="data.skills" [contacts]="data.contacts"></app-drawer-side>
       </mat-drawer>
       <mat-drawer-content class="main-content">
         <div *ngIf="mobileQuery.matches" class="summary" (click)="snav.toggle()">
@@ -10,7 +10,7 @@
             <span class="subheading-1">summary</span>
         </div>
 
-        <ng-container *ngFor="let eventGroup of timedEventGroups">
+        <ng-container *ngFor="let eventGroup of data.eventsGroups">
           <h2>{{ eventGroup.category }}</h2>
           <app-timed-event *ngFor="let event of eventGroup.events" [date]="event.date" [title]="event.title" [subtitle]="event.subtitle" [badge]="event.badge" [eventImage]="event.image">
             <app-timed-event-description [descriptionLines]="event.descriptionLines"></app-timed-event-description>

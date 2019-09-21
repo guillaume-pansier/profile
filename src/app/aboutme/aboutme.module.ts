@@ -8,7 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { AboutmeComponent } from './aboutme.component';
 import { DrawerSideComponent } from './drawer-side/drawer-side.component';
-import { EventService } from './event.service';
+import { ProfileService } from './event.service';
 import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
 import { TimedEventComponent } from './timed-event/timed-event.component';
 import { AboutmeRoutingModule } from './aboutme-routing.module';
@@ -34,6 +34,6 @@ import { AboutmeRoutingModule } from './aboutme-routing.module';
     AboutmeComponent,
     RouterModule
   ],
-  providers: [ EventService ]
+  providers: [ ProfileService ]
 })
 export class AboutmeModule { }

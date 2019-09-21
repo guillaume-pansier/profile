@@ -6,13 +6,14 @@ import { Observable } from 'rxjs';
 
 
 @Injectable()
-export class EventService {
+export class ProfileService {
+
   jsonUrl = 'assets/aboutme.json';
 
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<EventGroup[]> {
-    return this.http.get<EventResponse>(this.jsonUrl).pipe(map(data => data.eventsGroups));
+  getProfile(): Observable<ProfileResponse> {
+    return this.http.get<ProfileResponse>(this.jsonUrl);
   }
 }
 
@@ -22,7 +23,10 @@ export interface EventGroup {
   events: TimedEvent[];
 }
 
-export interface EventResponse {
+export interface ProfileResponse {
   eventsGroups: EventGroup[];
+  skills: string[];
+  languages: string[];
+  contacts: any[];
 }
 

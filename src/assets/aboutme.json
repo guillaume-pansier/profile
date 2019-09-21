@@ -65,5 +65,40 @@
         }
       ]
     }
+  ],
+  "skills": [
+    "Java 8",
+    "Spring",
+    "Angular",
+    "Jenkins",
+    "Docker"
+  ],
+  "languages": [
+    "French",
+    "Dutch",
+    "English",
+    "German",
+    "Spanish"
+  ],
+  "contacts": [
+    {
+      "href": "mailto:guillaume.pansier@gmail.com?Subject=Contact",
+      "materialIcon": "email",
+      "value": "guillaume.pansier@gmail.com"
+    },
+    {
+      "href": "https://www.linkedin.com/in/gpansier",
+      "materialIcon": "account_circle",
+      "value": "linkedin.com/in/gpansier"
+    },
+    {
+      "href": "/",
+      "materialIcon": "public",
+      "value": "gpansier.com"
+    },
+    {
+      "materialIcon": "place",
+      "value": "brussels"
+    }
   ]
 }

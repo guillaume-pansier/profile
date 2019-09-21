@@ -1,6 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { EventService } from './event.service';
+import { ProfileService, ProfileResponse } from './event.service';
 import { TimedEvent } from './timed-event/timed-event';
 
 
@@ -16,20 +16,25 @@ export class AboutmeComponent implements OnInit, OnDestroy {
 
   // needs a dummy value, because angular material would add css
   // at comple time, when timeEventGroup is not yet defined, which breaks the layout
-  timedEventGroups: { category: string, events: TimedEvent[] }[] = [
-    { category: 'Work Experience', events: [ { date: 'just now', title: 'Loading events'}]}
-  ];
+  data: ProfileResponse = {
+    eventsGroups: [
+      { category: 'Work Experience', events: [ { date: 'just now', title: 'Loading events'}]}
+    ],
+    skills: [ 'Java 8'],
+    languages: [ 'French' ],
+    contacts: [ { href: '/', value: 'guillaume.pansier@gmail.com', materialIcon: 'email' }]
+  };
 
-  constructor(private eventService: EventService, media: MediaMatcher, changeDetectorRef: ChangeDetectorRef) {
+  constructor(private profileService: ProfileService, media: MediaMatcher, changeDetectorRef: ChangeDetectorRef) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe(
+    this.profileService.getProfile().subscribe(
       data => {
-        this.timedEventGroups = data;
+        this.data = data;
       }
     );
   }

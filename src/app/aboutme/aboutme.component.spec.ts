@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Observable, of } from 'rxjs';
 import { AboutmeComponent } from './aboutme.component';
 import { DrawerSideComponent } from './drawer-side/drawer-side.component';
-import { EventService } from './event.service';
+import { ProfileService } from './event.service';
 import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
 import { TimedEventComponent } from './timed-event/timed-event.component';
 
@@ -26,7 +26,7 @@ describe('AboutmeComponent', () => {
       imports: [ MatCardModule ],
       declarations: [ AboutmeComponent, DrawerSideComponent, TimedEventComponent, TimedEventDescriptionComponent ],
       providers: [
-        { provide: EventService, useClass: EventServiceStub}
+        { provide: ProfileService, useClass: EventServiceStub}
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

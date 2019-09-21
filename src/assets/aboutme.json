@@ -4,14 +4,23 @@
       "category": "Work Experience",
       "events": [
         {
-          "date": "2015 - 2018",
+          "date": "2016 - 2018",
           "title": "AXA BE",
           "subtitle": "Java Team Lead / Software Engineer & Analyst",
           "descriptionLines": [
-            "Java Rest API / Backend Developper (Spring 4, Spring Boot, CXF JAX-WS)",
-            "batch processing (Spring Batch)",
-            "Angular Front-end Developper (Angular 4, ngrx)",
-            "transversal projects: transition to GIT, CI/CD Jenkins pipeline, Java community animation, IT recruitment"
+            "Java Lead in a team of 12 (with 4 Java) responsible for the “customer zone” (web + apps): responsible for technical decisions, support for architectural decisions, introduction of CRs, documentation and guidance for newcomers",
+            "Development of Java Rest APIs and services, development of Angular Frontends (Angular 2-5, ngrx)",
+            "Volunteering in transversal projects: CI setup (Jenkins shared libraries), Java community animation (presentations and Hackatons), recruitment days"
+          ],
+          "badge": "/assets/axa.png"
+        },
+        {
+          "date": "2015 - 2016",
+          "title": "AXA BE",
+          "subtitle": "Software Engineer & Analyst",
+          "descriptionLines": [
+            "Java batches and services optimization + fine tuning of the software configuration for the recurrent billing process",
+            "Volunteering in transversal projects: CI setup with Git migration, Jenkins pipeline"
           ],
           "badge": "/assets/axa.png"
         }
@@ -98,7 +107,7 @@
     },
     {
       "materialIcon": "place",
-      "value": "brussels"
+      "value": "Grenoble"
     }
   ]
 }

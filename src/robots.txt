@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /interests/
+Disallow: /technologies/
+Disallow: /assets/
+Sitemap: https://gpansier.com/sitemap.xml

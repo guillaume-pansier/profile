@@ -2,18 +2,17 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 /* tslint:disable:no-unused-variable */
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { AboutmeComponent } from './aboutme.component';
 import { DrawerSideComponent } from './drawer-side/drawer-side.component';
 import { ProfileService } from './event.service';
-import { TimedEventDescriptionComponent } from './timed-event/timed-event-description/timed-event-description.component';
 import { TimedEventComponent } from './timed-event/timed-event.component';
 
 
 
 class EventServiceStub {
-  getEvents() {
-    return of([]);
+  getProfile() {
+    return of();
   }
 }
 
@@ -24,12 +23,13 @@ describe('AboutmeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ MatCardModule ],
-      declarations: [ AboutmeComponent, DrawerSideComponent, TimedEventComponent, TimedEventDescriptionComponent ],
+      declarations: [ AboutmeComponent, DrawerSideComponent ],
       providers: [
         { provide: ProfileService, useClass: EventServiceStub}
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
+    .overrideTemplate(TimedEventComponent, '<div>my event </div>')
     .compileComponents();
   }));
 

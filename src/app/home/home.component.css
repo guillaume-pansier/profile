@@ -73,3 +73,7 @@ h1 {
 .carouseel-img {
   width: 100%;
 }
+
+.black {
+  color: rgba(50, 50, 50, 0.8);
+}

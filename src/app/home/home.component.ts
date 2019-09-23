@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Guillaume Pansier';
 
   constructor(private _http: HttpClient) {}
 

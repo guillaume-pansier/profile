@@ -1,17 +1,33 @@
+<div style="text-align:center" class="mat-typography mt-5 mb-5 mr-5 ml-5">
+    <h1>
+      Hi, I'm Guillaume Pansier
+    </h1>
+    <p class="lead mt-3">
+      Hi ! I'm Guillaume Pansier, a <span class="strikethrough"> developer</span>  Full Stack DevOps Engineer. 
+      You'll find here a bit of everything about me - who I am, what I've done, what I like, or even where I've been :)
+    </p>
+    <p class="lead mt-3">
+      This website also was for me an opportunity to keep up with the latest technologies, so you'll see a bit about those too. Don't be afraid though, it's only one page ! 
+    </p>
+    <p class="lead mt-3">
+      Enjoy your visit !
+    </p>
+  </div>
+
 <div class="container-flex">
   <mat-card>
     <ngb-carousel>
       <ng-template ngbSlide>
-        <a [routerLink]="[ '/aboutme']">
-          <img class="carouseel-img" src="/assets/caroussel/whoami2.jpg" alt="Guillaume Pansier logo"/>
+        <a title="Guillaume Pansier's resume" [routerLink]="[ '/aboutme']">
+          <img class="carouseel-img" src="/assets/caroussel/guillaume-pansier.jpg" alt="Guillaume Pansier's photo"/>
           <div class="carousel-caption mat-typography black">
             <h2>About me</h2>
           </div>
         </a>
       </ng-template>
       <ng-template ngbSlide>
-        <a [routerLink]="[ '/interests']">
-          <img class="carouseel-img" src="/assets/caroussel/hobbies.jpg" alt="Guillaume Pansier's interests logo"/>
+        <a title="Guillaume Pansier's hobbies" [routerLink]="[ '/interests']">
+          <img class="carouseel-img" src="/assets/caroussel/hobbies.jpg" alt="Guillaume Pansier's interests page logo"/>
           <div class="carousel-caption mat-typography">
             <h2>Interests</h2>
             <p>What I like to do, when I stop coding</p>
@@ -19,8 +35,8 @@
         </a>
       </ng-template>
       <ng-template ngbSlide>
-        <a [routerLink]="[ '/technologies']">
-          <img class="carouseel-img" src="/assets/caroussel/technology.jpg" alt="Technoloy logo"/>
+        <a title="Technologies behind Guillaume Pansier's website" [routerLink]="[ '/technologies']">
+          <img class="carouseel-img" src="/assets/caroussel/technology.jpg" alt="Guillaume Pansier's Technoloy page logo"/>
           <div class="carousel-caption mat-typography">
             <h2>Technoloy</h2>
             <p>Behind the scene<span class="hidden-when-small">: what the website hides</span></p>
@@ -31,21 +47,19 @@
   </mat-card>
 </div>
 
-<div style="text-align:center" class="mat-typography mt-5 mb-5 mr-5 ml-5">
-  <h1>
-    {{ title }}
-  </h1>
-  <p class="lead">
-    Hi ! I'm Guillaume Pansier, a <span class="strikethrough"> developer</span>  Full Stack DevOps Engineer. 
-    You'll find here a bit of everything about me - who I am, what I've done, even where I've been :)
-  </p>
-  <p class="lead">
-    This website is also my way to keep up with the latest technologies, so you'll see a lot about those too. 
-  </p>
-  <p class="lead">
-    Enjoy your visit !
-  </p>
-</div>
+<div style="text-align:center" class="mat-typography mt-5 mr-5 ml-5">
+    <p class="lead mt-3">
+        If you want to learn more about what I've done and how I ended up beeing a FullStack Engineer, check my 
+        <a title="Guillaume Pansier's resume" [routerLink]="['/aboutme']">digital resume</a>.
+    </p>
+    <p class="lead mt-3">
+        If you want to learn more about who am I, have a look at my  <a title="Guillaume Pansier's hobbies" [routerLink]="['/interests']">hobbies page</a>.
+    </p>
+    <p class="lead mt-3">
+        If you want to learn more on the following technologies and how I used them to build this awesome website, have a look at the  
+        <a title="Technologies behind Guillaume Pansier's website" [routerLink]="['/technologies']">technology page</a>.
+    </p>
+  </div>
 <div class="logo-container mb-5">
   <a href="https://angular.io/">
     <img class="logo" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">

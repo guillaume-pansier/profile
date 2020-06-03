@@ -6,7 +6,13 @@ import { DebugElement } from '@angular/core';
 import { AngularTechnologyComponent } from './angular-technology.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // tslint:disable-next-line:max-line-length
-import { MatGridListModule, MatButtonModule, MatCardModule, MatDividerModule, MatListModule, MatStepperModule, MatSlideToggleModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
 import { PortalModule } from '@angular/cdk/portal';
 
 describe('AngularTechnologyComponent', () => {

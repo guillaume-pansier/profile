@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimedEventComponent } from './timed-event.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('TimedEventComponent', () => {
   let component: TimedEventComponent;

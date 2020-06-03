@@ -2,7 +2,13 @@
 import { PortalModule } from '@angular/cdk/portal';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 // tslint:disable-next-line:max-line-length
-import { MatButtonModule, MatCardModule, MatDividerModule, MatGridListModule, MatListModule, MatSlideToggleModule, MatStepperModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaygroundComponent } from './playground.component';
 

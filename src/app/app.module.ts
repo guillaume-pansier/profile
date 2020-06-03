@@ -20,7 +20,7 @@ import { LayoutModule } from './layout/layout-module';
   imports: [
     LayoutModule,
     BrowserModule,
-    NgbModule.forRoot(),
+    NgbModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatCardModule,

@@ -15,7 +15,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        NgbModule.forRoot(),
+        NgbModule,
         MatCardModule,
         HttpClientTestingModule,
         RouterTestingModule

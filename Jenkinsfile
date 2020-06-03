@@ -19,7 +19,7 @@ pipeline {
     stage('fetch dependencies') {
       agent {
           docker {
-            image 'node:9'
+            image 'node:10'
             reuseNode true
           }
       }
@@ -30,7 +30,7 @@ pipeline {
     stage('Lint') {
       agent {
           docker {
-            image 'node:9'
+            image 'node:10'
             reuseNode true
           }
       }
@@ -42,7 +42,7 @@ pipeline {
     stage('Unit Tests') {
       agent {
           docker {
-            image 'circleci/node:9-stretch-browsers'
+            image 'circleci/node:10-stretch-browsers'
             reuseNode true
           }
       }
@@ -69,7 +69,7 @@ pipeline {
                     """
 
                     docker.image('selenium/standalone-firefox').withRun("--link ${web.id}:web") { selenium ->
-                      docker.image('node:9').inside("--link ${selenium.id}:selenium") {
+                      docker.image('node:10').inside("--link ${selenium.id}:selenium") {
                         sh 'npm run protractor -- --baseUrl=http://web:4200 --seleniumAddress=http://selenium:4444/wd/hub --browser=firefox'
                       }
                     }
@@ -88,7 +88,7 @@ pipeline {
                     """
 
                     docker.image('selenium/standalone-chrome').withRun("--link ${web.id}:web") { selenium ->
-                      docker.image('node:9').inside("--link ${selenium.id}:selenium") {
+                      docker.image('node:10').inside("--link ${selenium.id}:selenium") {
                         sh 'npm run protractor -- --baseUrl=http://web:4200 --seleniumAddress=http://selenium:4444/wd/hub --browser=chrome'
                       }
                     }
@@ -101,7 +101,7 @@ pipeline {
     stage('Build') {
       agent {
           docker {
-            image 'node:9'
+            image 'node:10'
             reuseNode true
           }
       }

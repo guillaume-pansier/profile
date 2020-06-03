@@ -10,9 +10,9 @@ const routes: Route[] = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full'},
   { path: '', component: LayoutComponent, children: [
     { path: 'welcome', component: HomeComponent},
-    { path: 'aboutme', loadChildren: 'app/aboutme/aboutme.module#AboutmeModule' },
-    { path: 'technologies', loadChildren: 'app/playground/playground.module#PlaygroundModule' },
-    { path: 'interests', loadChildren: 'app/interests/interest.module#InterestModule'}
+    { path: 'aboutme', loadChildren: () => import('app/aboutme/aboutme.module').then(m => m.AboutmeModule) },
+    { path: 'technologies', loadChildren: () => import('app/playground/playground.module').then(m => m.PlaygroundModule) },
+    { path: 'interests', loadChildren: () => import('app/interests/interest.module').then(m => m.InterestModule)}
   ]},
   { path: '**', redirectTo: 'welcome'},
 ];

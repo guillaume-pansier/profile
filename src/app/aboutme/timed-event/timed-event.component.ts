@@ -16,7 +16,7 @@ export class TimedEventComponent implements OnInit {
   @Input() eventImage: string;
 
   overlayRef: OverlayRef;
-  @ViewChild('templatePortalContent') templatePortalContent: TemplateRef<any>;
+  @ViewChild('templatePortalContent', {static: false}) templatePortalContent: TemplateRef<any>;
   modalImage: string;
 
   openEventImage() {

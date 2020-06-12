@@ -61,7 +61,7 @@ pipeline {
 
                     sh """
                       counter=0
-                      until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "15" ]; do
+                      until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "20" ]; do
                         echo "Sleeping for next 10 seconds"
                         sleep 10
                         counter=\$((counter+1));
@@ -80,7 +80,7 @@ pipeline {
 
                     sh """
                       counter=0
-                      until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "15" ]; do
+                      until [ "`docker inspect -f {{.State.Health.Status}} ${web.id}`" = "healthy" -o  "\$counter" -eq "20" ]; do
                         echo "Sleeping for next 10 seconds"
                         sleep 10
                         counter=\$((counter+1));

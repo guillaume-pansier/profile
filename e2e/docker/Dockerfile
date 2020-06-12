@@ -27,7 +27,7 @@ RUN mkdir ./ng-app && cp -R ./node_modules ./ng-app
 WORKDIR ./ng-app
 COPY . .
 
-RUN npm i -g @angular/cli@6.0.1
+RUN npm i -g @angular/cli@9.1.8
 
 EXPOSE 4200
 

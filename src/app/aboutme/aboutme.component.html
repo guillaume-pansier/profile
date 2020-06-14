@@ -1,10 +1,10 @@
 <div class="mat-typography">
   <mat-card>
     <mat-drawer-container>
-      <mat-drawer #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches" class="drawer-side" >
+      <mat-drawer #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches" class="drawer-side" data-cy="drawer-side">
         <app-drawer-side [languages]="data.languages" [skills]="data.skills" [contacts]="data.contacts"></app-drawer-side>
       </mat-drawer>
-      <mat-drawer-content class="main-content">
+      <mat-drawer-content class="main-content" data-cy="drawer-main">
         <div *ngIf="mobileQuery.matches" class="summary" (click)="snav.toggle()">
             <mat-icon  role="img" aria-hidden="true">menu</mat-icon>
             <span class="subheading-1">summary</span>

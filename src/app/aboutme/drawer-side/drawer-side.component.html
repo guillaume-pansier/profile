@@ -1,6 +1,6 @@
 <div class="drawer-side">
 
-  <div class="side-section">
+  <div class="side-section" data-cy="skills">
     <h4 class="lead">SKILLS</h4>
     <ul>
       <li *ngFor="let skill of skills">
@@ -9,7 +9,7 @@
     </ul>
   </div>
 
-  <div class="side-section">
+  <div class="side-section" data-cy="languages">
     <h4 class="lead">LANGUAGES</h4>
     <ul>
       <li *ngFor="let language of languages">
@@ -18,17 +18,17 @@
     </ul>
   </div>
 
-  <div class="side-section">
-      <h4 class="lead">CONTACTS</h4>
-      <div class="contact-container" *ngFor="let contact of contacts">
-        <a *ngIf="contact.href; else simpleContact" [href]="contact.href">
+  <div class="side-section" data-cy="CONTACTS">
+    <h4 class="lead">CONTACTS</h4>
+    <div class="contact-container" *ngFor="let contact of contacts">
+      <a *ngIf="contact.href; else simpleContact" [href]="contact.href">
+        <mat-icon class="icon">{{ contact.materialIcon }}</mat-icon>
+        {{ contact.value  }}
+      </a>
+      <ng-template #simpleContact>
           <mat-icon class="icon">{{ contact.materialIcon }}</mat-icon>
           {{ contact.value  }}
-        </a>
-        <ng-template #simpleContact>
-            <mat-icon class="icon">{{ contact.materialIcon }}</mat-icon>
-            {{ contact.value  }}  
-        </ng-template>
-      </div>
+      </ng-template>
     </div>
+  </div>
 </div>
